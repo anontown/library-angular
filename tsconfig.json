@@ -1,0 +1,37 @@
+{
+    "compilerOptions": {
+        //"baseUrl": "./node_modules",
+        "declaration": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "lib": [
+            "es6",
+            "dom"
+        ],
+        //"mapRoot": "./dist/",
+        "module": "es6",
+        "moduleResolution": "node",
+        "outDir": "./dist/",
+        "sourceMap": false,
+        "target": "es6",
+        "typeRoots": [
+            "./node_modules/@types"
+        ],
+        /*"paths": {
+            "anontown": [
+                "../src/index"
+            ]
+        },*/
+        "skipLibCheck": true,
+        "strictNullChecks": true,
+        "noImplicitAny": true,
+        "allowSyntheticDefaultImports": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noUnusedParameters": true,
+        "noUnusedLocals": true,
+        "noFallthroughCasesInSwitch": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "forceConsistentCasingInFileNames": true
+    }
+}
