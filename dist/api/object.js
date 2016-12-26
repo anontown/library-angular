@@ -102,6 +102,9 @@ export class Res {
     get replyCount() {
         return this.obj.replyCount;
     }
+    get isVote() {
+        return this.obj.isVote;
+    }
 }
 export class Profile {
     constructor(_id, cache) {

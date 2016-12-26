@@ -139,6 +139,10 @@ export class Res {
     get replyCount(): number {
         return this.obj.replyCount;
     }
+
+    get isVote(): boolean | null {
+        return this.obj.isVote;
+    }
 }
 export class Profile {
     constructor(private _id: string, private cache: AtObjectCache) {
@@ -298,3 +302,4 @@ export class User {
         return this.obj.sn;
     }
 }
+

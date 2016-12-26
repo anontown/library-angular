@@ -42,6 +42,7 @@ export declare class Res {
     readonly hash: string;
     readonly profile: string | null;
     readonly replyCount: number;
+    readonly isVote: boolean | null;
 }
 export declare class Profile {
     private _id;
