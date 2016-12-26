@@ -1,10 +1,7 @@
-import { IHistoryAPI, ResDeleteFlag } from './api-object';
-import { AtObjectCache } from './at-object-cache';
+import { IProfileAPI, IResAPI, ITokenAPI, ITopicAPI, IUserAPI, IMsgAPI, IHistoryAPI, IClientAPI, ResDeleteFlag } from './api-object';
 export declare class Client {
-    private _id;
-    private cache;
-    constructor(_id: string, cache: AtObjectCache);
-    private readonly obj;
+    private obj;
+    constructor(obj: IClientAPI);
     readonly id: string;
     readonly name: string;
     readonly url: string;
@@ -25,10 +22,8 @@ export declare class History {
     readonly hash: string;
 }
 export declare class Res {
-    private _id;
-    private cache;
-    constructor(_id: string, cache: AtObjectCache);
-    private readonly obj;
+    private obj;
+    constructor(obj: IResAPI);
     readonly id: string;
     readonly topic: string;
     readonly date: Date;
@@ -45,10 +40,8 @@ export declare class Res {
     readonly isVote: boolean | null;
 }
 export declare class Profile {
-    private _id;
-    private cache;
-    constructor(_id: string, cache: AtObjectCache);
-    private readonly obj;
+    private obj;
+    constructor(obj: IProfileAPI);
     readonly id: string;
     readonly user: string | null;
     readonly name: string;
@@ -58,11 +51,9 @@ export declare class Profile {
     readonly update: Date;
 }
 export declare class Topic {
-    private _id;
-    private cache;
+    private obj;
     private _histories;
-    constructor(_id: string, cache: AtObjectCache);
-    private readonly obj;
+    constructor(obj: ITopicAPI);
     readonly id: string;
     readonly title: string;
     readonly category: string[];
@@ -74,10 +65,8 @@ export declare class Topic {
     readonly histories: History[];
 }
 export declare class Msg {
-    private _id;
-    private cache;
-    constructor(_id: string, cache: AtObjectCache);
-    private readonly obj;
+    private obj;
+    constructor(obj: IMsgAPI);
     readonly id: string;
     readonly receiver: string | null;
     readonly text: string;
@@ -85,10 +74,8 @@ export declare class Msg {
     readonly date: Date;
 }
 export declare class Token {
-    private _id;
-    private cache;
-    constructor(_id: string, cache: AtObjectCache);
-    private readonly obj;
+    private obj;
+    constructor(obj: ITokenAPI);
     readonly id: string;
     readonly key: string;
     readonly client: string;
@@ -97,10 +84,8 @@ export declare class Token {
     readonly date: Date;
 }
 export declare class User {
-    private _id;
-    private cache;
-    constructor(_id: string, cache: AtObjectCache);
-    private readonly obj;
+    private obj;
+    constructor(obj: IUserAPI);
     readonly id: string;
     readonly sn: string;
 }

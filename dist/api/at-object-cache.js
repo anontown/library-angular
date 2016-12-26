@@ -10,49 +10,49 @@ export class AtObjectCache {
         this.user = new Map();
         this.addTopic = (val) => {
             this.topic.set(val.id, val);
-            return new Topic(val.id, this);
+            return new Topic(val);
         };
         this.addTopicList = (val) => {
             return val.map(x => this.addTopic(x));
         };
         this.addRes = (val) => {
             this.res.set(val.id, val);
-            return new Res(val.id, this);
+            return new Res(val);
         };
         this.addResList = (val) => {
             return val.map(x => this.addRes(x));
         };
         this.addMsg = (val) => {
             this.msg.set(val.id, val);
-            return new Msg(val.id, this);
+            return new Msg(val);
         };
         this.addMsgList = (val) => {
             return val.map(x => this.addMsg(x));
         };
         this.addProfile = (val) => {
             this.profile.set(val.id, val);
-            return new Profile(val.id, this);
+            return new Profile(val);
         };
         this.addProfileList = (val) => {
             return val.map(x => this.addProfile(x));
         };
         this.addToken = (val) => {
             this.token.set(val.id, val);
-            return new Token(val.id, this);
+            return new Token(val);
         };
         this.addTokenList = (val) => {
             return val.map(x => this.addToken(x));
         };
         this.addClient = (val) => {
             this.client.set(val.id, val);
-            return new Client(val.id, this);
+            return new Client(val);
         };
         this.addClientList = (val) => {
             return val.map(x => this.addClient(x));
         };
         this.addUser = (val) => {
             this.user.set(val.id, val);
-            return new User(val.id, this);
+            return new User(val);
         };
         this.addUserList = (val) => {
             return val.map(x => this.addUser(x));

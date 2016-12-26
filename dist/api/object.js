@@ -1,13 +1,9 @@
 export class Client {
-    constructor(_id, cache) {
-        this._id = _id;
-        this.cache = cache;
-    }
-    get obj() {
-        return this.cache.getClient(this._id);
+    constructor(obj) {
+        this.obj = obj;
     }
     get id() {
-        return this._id;
+        return this.obj.id;
     }
     get name() {
         return this.obj.name;
@@ -56,15 +52,11 @@ export class History {
     }
 }
 export class Res {
-    constructor(_id, cache) {
-        this._id = _id;
-        this.cache = cache;
-    }
-    get obj() {
-        return this.cache.getRes(this._id);
+    constructor(obj) {
+        this.obj = obj;
     }
     get id() {
-        return this._id;
+        return this.obj.id;
     }
     get topic() {
         return this.obj.topic;
@@ -107,15 +99,11 @@ export class Res {
     }
 }
 export class Profile {
-    constructor(_id, cache) {
-        this._id = _id;
-        this.cache = cache;
-    }
-    get obj() {
-        return this.cache.getProfile(this._id);
+    constructor(obj) {
+        this.obj = obj;
     }
     get id() {
-        return this._id;
+        return this.obj.id;
     }
     get user() {
         return this.obj.user;
@@ -137,16 +125,12 @@ export class Profile {
     }
 }
 export class Topic {
-    constructor(_id, cache) {
-        this._id = _id;
-        this.cache = cache;
+    constructor(obj) {
+        this.obj = obj;
         this._histories = this.obj.histories.map(h => new History(h));
     }
-    get obj() {
-        return this.cache.getTopic(this._id);
-    }
     get id() {
-        return this._id;
+        return this.obj.id;
     }
     get title() {
         return this.obj.title;
@@ -174,15 +158,11 @@ export class Topic {
     }
 }
 export class Msg {
-    constructor(_id, cache) {
-        this._id = _id;
-        this.cache = cache;
-    }
-    get obj() {
-        return this.cache.getMsg(this._id);
+    constructor(obj) {
+        this.obj = obj;
     }
     get id() {
-        return this._id;
+        return this.obj.id;
     }
     get receiver() {
         return this.obj.receiver;
@@ -198,15 +178,11 @@ export class Msg {
     }
 }
 export class Token {
-    constructor(_id, cache) {
-        this._id = _id;
-        this.cache = cache;
-    }
-    get obj() {
-        return this.cache.getToken(this._id);
+    constructor(obj) {
+        this.obj = obj;
     }
     get id() {
-        return this._id;
+        return this.obj.id;
     }
     get key() {
         return this.obj.key;
@@ -225,15 +201,11 @@ export class Token {
     }
 }
 export class User {
-    constructor(_id, cache) {
-        this._id = _id;
-        this.cache = cache;
-    }
-    get obj() {
-        return this.cache.getUser(this._id);
+    constructor(obj) {
+        this.obj = obj;
     }
     get id() {
-        return this._id;
+        return this.obj.id;
     }
     get sn() {
         return this.obj.sn;

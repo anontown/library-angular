@@ -1,6 +1,7 @@
 import { Client, Token, Topic, Res, Msg, Profile, User } from './object';
 import { ITokenReqAPI } from './api-object';
 import { IAuthUser, IAuthToken } from './auth';
+import { AtObjectCache } from './at-object-cache';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 export declare class AtError {
@@ -10,7 +11,7 @@ export declare class AtError {
 }
 export declare class AtApiService {
     private http;
-    private cache;
+    readonly cache: AtObjectCache;
     constructor(http: Http);
     private request(name, params, authToken, authUser);
     createRes(authToken: IAuthToken, params: {

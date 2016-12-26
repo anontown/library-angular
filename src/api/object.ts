@@ -10,18 +10,12 @@ import {
     ResDeleteFlag
 } from './api-object';
 
-import { AtObjectCache } from './at-object-cache';
-
 export class Client {
-    constructor(private _id: string, private cache: AtObjectCache) {
-    }
-
-    private get obj(): IClientAPI {
-        return this.cache.getClient(this._id);
+    constructor(private obj: IClientAPI) {
     }
 
     get id(): string {
-        return this._id;
+        return this.obj.id;
     }
 
     get name(): string {
@@ -81,15 +75,11 @@ export class History {
     }
 }
 export class Res {
-    constructor(private _id: string, private cache: AtObjectCache) {
-    }
-
-    private get obj(): IResAPI {
-        return this.cache.getRes(this._id);
+    constructor(private obj: IResAPI) {
     }
 
     get id(): string {
-        return this._id;
+        return this.obj.id;
     }
 
     get topic(): string {
@@ -145,15 +135,11 @@ export class Res {
     }
 }
 export class Profile {
-    constructor(private _id: string, private cache: AtObjectCache) {
-    }
-
-    private get obj(): IProfileAPI {
-        return this.cache.getProfile(this._id);
+    constructor(private obj: IProfileAPI) {
     }
 
     get id(): string {
-        return this._id;
+        return this.obj.id;
     }
 
     get user(): string | null {
@@ -182,16 +168,12 @@ export class Profile {
 }
 export class Topic {
     private _histories: History[];
-    constructor(private _id: string, private cache: AtObjectCache) {
+    constructor(private obj: ITopicAPI) {
         this._histories = this.obj.histories.map(h => new History(h));
     }
 
-    private get obj(): ITopicAPI {
-        return this.cache.getTopic(this._id);
-    }
-
     get id(): string {
-        return this._id;
+        return this.obj.id;
     }
 
     get title(): string {
@@ -227,15 +209,12 @@ export class Topic {
     }
 }
 export class Msg {
-    constructor(private _id: string, private cache: AtObjectCache) {
+    constructor(private obj: IMsgAPI) {
     }
 
-    private get obj(): IMsgAPI {
-        return this.cache.getMsg(this._id);
-    }
 
     get id(): string {
-        return this._id;
+        return this.obj.id;
     }
 
     get receiver(): string | null {
@@ -255,15 +234,11 @@ export class Msg {
     }
 }
 export class Token {
-    constructor(private _id: string, private cache: AtObjectCache) {
-    }
-
-    private get obj(): ITokenAPI {
-        return this.cache.getToken(this._id);
+    constructor(private obj: ITokenAPI) {
     }
 
     get id(): string {
-        return this._id;
+        return this.obj.id;
     }
 
     get key(): string {
@@ -287,15 +262,11 @@ export class Token {
     }
 }
 export class User {
-    constructor(private _id: string, private cache: AtObjectCache) {
-    }
-
-    private get obj(): IUserAPI {
-        return this.cache.getUser(this._id);
+    constructor(private obj: IUserAPI) {
     }
 
     get id(): string {
-        return this._id;
+        return this.obj.id;
     }
 
     get sn(): string {

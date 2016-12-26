@@ -85,7 +85,7 @@ export class AtObjectCache {
 
     addTopic = (val: ITopicAPI) => {
         this.topic.set(val.id, val);
-        return new Topic(val.id, this);
+        return new Topic(val);
     };
 
     addTopicList = (val: ITopicAPI[]) => {
@@ -94,7 +94,7 @@ export class AtObjectCache {
 
     addRes = (val: IResAPI) => {
         this.res.set(val.id, val);
-        return new Res(val.id, this);
+        return new Res(val);
     };
 
     addResList = (val: IResAPI[]) => {
@@ -103,7 +103,7 @@ export class AtObjectCache {
 
     addMsg = (val: IMsgAPI) => {
         this.msg.set(val.id, val);
-        return new Msg(val.id, this);
+        return new Msg(val);
     };
 
     addMsgList = (val: IMsgAPI[]) => {
@@ -112,7 +112,7 @@ export class AtObjectCache {
 
     addProfile = (val: IProfileAPI) => {
         this.profile.set(val.id, val);
-        return new Profile(val.id, this);
+        return new Profile(val);
     };
 
     addProfileList = (val: IProfileAPI[]) => {
@@ -121,7 +121,7 @@ export class AtObjectCache {
 
     addToken = (val: ITokenAPI) => {
         this.token.set(val.id, val);
-        return new Token(val.id, this);
+        return new Token(val);
     };
 
     addTokenList = (val: ITokenAPI[]) => {
@@ -130,7 +130,7 @@ export class AtObjectCache {
 
     addClient = (val: IClientAPI) => {
         this.client.set(val.id, val);
-        return new Client(val.id, this);
+        return new Client(val);
     };
 
     addClientList = (val: IClientAPI[]) => {
@@ -139,7 +139,7 @@ export class AtObjectCache {
 
     addUser = (val: IUserAPI) => {
         this.user.set(val.id, val);
-        return new User(val.id, this);
+        return new User(val);
     };
 
     addUserList = (val: IUserAPI[]) => {

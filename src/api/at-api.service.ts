@@ -32,7 +32,7 @@ export class AtError {
 
 @Injectable()
 export class AtApiService {
-    private cache: AtObjectCache = new AtObjectCache();
+    readonly cache: AtObjectCache = new AtObjectCache();
 
     constructor(private http: Http) { }
 
