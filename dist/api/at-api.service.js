@@ -19,7 +19,6 @@ import { AtObjectCache } from './at-object-cache';
 import { Http, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
-import { AtConfig } from '../config';
 /*export class AtError extends Error {
     constructor(public status: number, message: string) {
         super(message);
@@ -32,14 +31,14 @@ export class AtError {
         this.message = message;
     }
 }
-let AtApiService = class AtApiService {
+let AtApiService = AtApiService_1 = class AtApiService {
     constructor(http) {
         this.http = http;
         this.cache = new AtObjectCache();
     }
     request(name, params, authToken, authUser) {
         return __awaiter(this, void 0, void 0, function* () {
-            var url = AtConfig.serverURL + name;
+            var url = AtApiService_1.serverURL + name;
             var headers = new Headers();
             headers.append('Content-Type', 'application/json');
             let res = yield this.http.post(url, JSON.stringify({ authUser, authToken, params }), {
@@ -281,8 +280,10 @@ let AtApiService = class AtApiService {
         });
     }
 };
-AtApiService = __decorate([
+AtApiService.serverURL = "https://api.anontown.com";
+AtApiService = AtApiService_1 = __decorate([
     Injectable(),
     __metadata("design:paramtypes", [Http])
 ], AtApiService);
 export { AtApiService };
+var AtApiService_1;

@@ -4,8 +4,6 @@ import {
     AtApiService,
 } from './api';
 
-
-
 @NgModule({
     imports: [
         //モジュール

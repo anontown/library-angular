@@ -11,6 +11,7 @@ export declare class AtError {
 }
 export declare class AtApiService {
     private http;
+    static serverURL: string;
     readonly cache: AtObjectCache;
     constructor(http: Http);
     private request(name, params, authToken, authUser);

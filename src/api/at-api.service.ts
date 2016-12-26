@@ -15,7 +15,6 @@ import { AtObjectCache } from './at-object-cache';
 import { Http, Headers, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
-import { AtConfig } from '../config';
 
 
 /*export class AtError extends Error {
@@ -32,12 +31,13 @@ export class AtError {
 
 @Injectable()
 export class AtApiService {
+    static serverURL = "https://api.anontown.com";
     readonly cache: AtObjectCache = new AtObjectCache();
 
     constructor(private http: Http) { }
 
     private async request(name: string, params: any, authToken: IAuthToken | null, authUser: IAuthUser | null): Promise<any> {
-        var url = AtConfig.serverURL + name;
+        var url = AtApiService.serverURL + name;
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
 
