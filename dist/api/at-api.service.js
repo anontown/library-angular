@@ -279,6 +279,11 @@ let AtApiService = AtApiService_1 = class AtApiService {
             return this.cache.addClientList(yield this.request("/client/find/all", null, null, authUser));
         });
     }
+    authUser(authUser) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.request("/user/auth", null, null, authUser);
+        });
+    }
 };
 AtApiService.serverURL = "https://api.anontown.com";
 AtApiService = AtApiService_1 = __decorate([

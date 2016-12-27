@@ -168,4 +168,5 @@ export declare class AtApiService {
         ids: string[];
     }): Promise<Client[]>;
     findClientAll(authUser: IAuthUser): Promise<Client[]>;
+    authUser(authUser: IAuthUser): Promise<null>;
 }

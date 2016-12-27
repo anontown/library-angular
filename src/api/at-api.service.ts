@@ -517,4 +517,12 @@ export class AtApiService {
             null,
             authUser));
     }
+
+    async authUser(authUser: IAuthUser): Promise<null> {
+        return await this.request(
+            "/user/auth",
+            null,
+            null,
+            authUser);
+    }
 }
