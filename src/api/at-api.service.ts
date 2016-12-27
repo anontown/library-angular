@@ -402,7 +402,7 @@ export class AtApiService {
     async setTokenStorage(authToken: IAuthToken,
         params: {
             value: string
-        }): Promise<null> {
+        }): Promise<void> {
         return await this.request(
             "/token/storage/set",
             params,
@@ -518,7 +518,7 @@ export class AtApiService {
             authUser));
     }
 
-    async authUser(authUser: IAuthUser): Promise<null> {
+    async authUser(authUser: IAuthUser): Promise<void> {
         return await this.request(
             "/user/auth",
             null,

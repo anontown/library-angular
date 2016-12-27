@@ -135,7 +135,7 @@ export declare class AtApiService {
     }): Promise<Token>;
     setTokenStorage(authToken: IAuthToken, params: {
         value: string;
-    }): Promise<null>;
+    }): Promise<void>;
     getTokenStorage(authToken: IAuthToken): Promise<string>;
     createTokenReq(authToken: IAuthToken): Promise<ITokenReqAPI>;
     findTokenReq(params: {
@@ -168,5 +168,5 @@ export declare class AtApiService {
         ids: string[];
     }): Promise<Client[]>;
     findClientAll(authUser: IAuthUser): Promise<Client[]>;
-    authUser(authUser: IAuthUser): Promise<null>;
+    authUser(authUser: IAuthUser): Promise<void>;
 }
