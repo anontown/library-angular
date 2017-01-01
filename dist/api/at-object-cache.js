@@ -1,6 +1,7 @@
 import { Client, Token, Topic, Res, Msg, Profile, User } from './object';
-export class AtObjectCache {
-    constructor() {
+var AtObjectCache = (function () {
+    function AtObjectCache() {
+        var _this = this;
         this.token = new Map();
         this.client = new Map();
         this.topic = new Map();
@@ -8,103 +9,105 @@ export class AtObjectCache {
         this.msg = new Map();
         this.profile = new Map();
         this.user = new Map();
-        this.addTopic = (val) => {
-            this.topic.set(val.id, val);
+        this.addTopic = function (val) {
+            _this.topic.set(val.id, val);
             return new Topic(val);
         };
-        this.addTopicList = (val) => {
-            return val.map(x => this.addTopic(x));
+        this.addTopicList = function (val) {
+            return val.map(function (x) { return _this.addTopic(x); });
         };
-        this.addRes = (val) => {
-            this.res.set(val.id, val);
+        this.addRes = function (val) {
+            _this.res.set(val.id, val);
             return new Res(val);
         };
-        this.addResList = (val) => {
-            return val.map(x => this.addRes(x));
+        this.addResList = function (val) {
+            return val.map(function (x) { return _this.addRes(x); });
         };
-        this.addMsg = (val) => {
-            this.msg.set(val.id, val);
+        this.addMsg = function (val) {
+            _this.msg.set(val.id, val);
             return new Msg(val);
         };
-        this.addMsgList = (val) => {
-            return val.map(x => this.addMsg(x));
+        this.addMsgList = function (val) {
+            return val.map(function (x) { return _this.addMsg(x); });
         };
-        this.addProfile = (val) => {
-            this.profile.set(val.id, val);
+        this.addProfile = function (val) {
+            _this.profile.set(val.id, val);
             return new Profile(val);
         };
-        this.addProfileList = (val) => {
-            return val.map(x => this.addProfile(x));
+        this.addProfileList = function (val) {
+            return val.map(function (x) { return _this.addProfile(x); });
         };
-        this.addToken = (val) => {
-            this.token.set(val.id, val);
+        this.addToken = function (val) {
+            _this.token.set(val.id, val);
             return new Token(val);
         };
-        this.addTokenList = (val) => {
-            return val.map(x => this.addToken(x));
+        this.addTokenList = function (val) {
+            return val.map(function (x) { return _this.addToken(x); });
         };
-        this.addClient = (val) => {
-            this.client.set(val.id, val);
+        this.addClient = function (val) {
+            _this.client.set(val.id, val);
             return new Client(val);
         };
-        this.addClientList = (val) => {
-            return val.map(x => this.addClient(x));
+        this.addClientList = function (val) {
+            return val.map(function (x) { return _this.addClient(x); });
         };
-        this.addUser = (val) => {
-            this.user.set(val.id, val);
+        this.addUser = function (val) {
+            _this.user.set(val.id, val);
             return new User(val);
         };
-        this.addUserList = (val) => {
-            return val.map(x => this.addUser(x));
+        this.addUserList = function (val) {
+            return val.map(function (x) { return _this.addUser(x); });
         };
     }
-    getToken(id) {
-        let val = this.token.get(id);
+    AtObjectCache.prototype.getToken = function (id) {
+        var val = this.token.get(id);
         if (val === undefined) {
             throw Error();
         }
         return val;
-    }
-    getClient(id) {
-        let val = this.client.get(id);
+    };
+    AtObjectCache.prototype.getClient = function (id) {
+        var val = this.client.get(id);
         if (val === undefined) {
             throw Error();
         }
         return val;
-    }
-    getTopic(id) {
-        let val = this.topic.get(id);
+    };
+    AtObjectCache.prototype.getTopic = function (id) {
+        var val = this.topic.get(id);
         if (val === undefined) {
             throw Error();
         }
         return val;
-    }
-    getRes(id) {
-        let val = this.res.get(id);
+    };
+    AtObjectCache.prototype.getRes = function (id) {
+        var val = this.res.get(id);
         if (val === undefined) {
             throw Error();
         }
         return val;
-    }
-    getMsg(id) {
-        let val = this.msg.get(id);
+    };
+    AtObjectCache.prototype.getMsg = function (id) {
+        var val = this.msg.get(id);
         if (val === undefined) {
             throw Error();
         }
         return val;
-    }
-    getProfile(id) {
-        let val = this.profile.get(id);
+    };
+    AtObjectCache.prototype.getProfile = function (id) {
+        var val = this.profile.get(id);
         if (val === undefined) {
             throw Error();
         }
         return val;
-    }
-    getUser(id) {
-        let val = this.user.get(id);
+    };
+    AtObjectCache.prototype.getUser = function (id) {
+        var val = this.user.get(id);
         if (val === undefined) {
             throw Error();
         }
         return val;
-    }
-}
+    };
+    return AtObjectCache;
+}());
+export { AtObjectCache };

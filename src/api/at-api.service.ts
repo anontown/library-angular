@@ -17,12 +17,6 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 
 
-/*export class AtError extends Error {
-    constructor(public status: number, message: string) {
-        super(message);
-        this.name = "AtError";
-    }
-}*/
 export class AtError {
     constructor(public status: number, public message: string) {
 

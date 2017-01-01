@@ -10,8 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { AtApiService, } from './api';
-let AnontownModule = class AnontownModule {
-};
+var AnontownModule = (function () {
+    function AnontownModule() {
+    }
+    return AnontownModule;
+}());
 AnontownModule = __decorate([
     NgModule({
         imports: [
