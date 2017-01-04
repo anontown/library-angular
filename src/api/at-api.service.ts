@@ -6,7 +6,7 @@ import {
     Msg,
     Profile,
     User,
-    //History
+    History
 } from './object';
 
 import {
@@ -17,7 +17,7 @@ import {
     IMsgAPI,
     IUserAPI,
     IClientAPI,
-    //IHistoryAPI,
+    IHistoryAPI,
     IProfileAPI
 } from './api-object';
 import { IAuthUser, IAuthToken } from './auth';
@@ -246,6 +246,37 @@ export class AtApiService {
             params,
             authToken,
             null));
+    }
+
+    //[history]
+    async findHistoryOne(params: {
+        id: string
+    }): Promise<History> {
+        return new History(await this.request<IHistoryAPI>(
+            "/history/find/one",
+            params,
+            null,
+            null));
+    }
+
+    async findHistoryIn(params: {
+        ids: string[]
+    }): Promise<History[]> {
+        return (await this.request<IHistoryAPI[]>(
+            "/history/find/in",
+            params,
+            null,
+            null)).map(h => new History(h));
+    }
+
+    async findHistoryAll(params: {
+        topic: string
+    }): Promise<History[]> {
+        return (await this.request<IHistoryAPI[]>(
+            "/history/find/all",
+            params,
+            null,
+            null)).map(h => new History(h));
     }
     //[msg]
     async findMsgOne(authToken: IAuthToken,

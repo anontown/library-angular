@@ -1,7 +1,6 @@
-import { Client, Token, Topic, Res, Msg, Profile, User } from './object';
+import { Client, Token, Topic, Res, Msg, Profile, User, History } from './object';
 import { ITokenReqAPI } from './api-object';
 import { IAuthUser, IAuthToken } from './auth';
-import { AtObjectCache } from './at-object-cache';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 export declare class AtError {
@@ -12,9 +11,8 @@ export declare class AtError {
 export declare class AtApiService {
     private http;
     static serverURL: string;
-    readonly cache: AtObjectCache;
     constructor(http: Http);
-    private request(name, params, authToken, authUser);
+    private request<T>(name, params, authToken, authUser);
     createRes(authToken: IAuthToken, params: {
         topic: string;
         name: string;
@@ -88,6 +86,15 @@ export declare class AtApiService {
         category: string[];
         text: string;
     }): Promise<Topic>;
+    findHistoryOne(params: {
+        id: string;
+    }): Promise<History>;
+    findHistoryIn(params: {
+        ids: string[];
+    }): Promise<History[]>;
+    findHistoryAll(params: {
+        topic: string;
+    }): Promise<History[]>;
     findMsgOne(authToken: IAuthToken, params: {
         id: string;
     }): Promise<Msg>;

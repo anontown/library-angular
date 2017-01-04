@@ -52,7 +52,6 @@ export declare class Profile {
 }
 export declare class Topic {
     private obj;
-    private _histories;
     constructor(obj: ITopicAPI);
     readonly id: string;
     readonly title: string;
@@ -62,7 +61,6 @@ export declare class Topic {
     readonly update: Date;
     readonly date: Date;
     readonly resCount: number;
-    readonly histories: History[];
 }
 export declare class Msg {
     private obj;

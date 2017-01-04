@@ -42,7 +42,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { Client, Token, Topic, Res, Msg, Profile, User } from './object';
+import { Client, Token, Topic, Res, Msg, Profile, User, History } from './object';
 import { Http, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
@@ -60,7 +60,7 @@ var AtApiService = AtApiService_1 = (function () {
     }
     AtApiService.prototype.request = function (name, params, authToken, authUser) {
         return __awaiter(this, void 0, void 0, function () {
-            var url, headers, res, json;
+            var url, headers, res;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -74,11 +74,7 @@ var AtApiService = AtApiService_1 = (function () {
                             })];
                     case 1:
                         res = _a.sent();
-                        json = res.json();
-                        if (res.status === 200) {
-                            return [2 /*return*/, json];
-                        }
-                        return [2 /*return*/];
+                        return [2 /*return*/, res.json()];
                 }
             });
         });
@@ -275,6 +271,40 @@ var AtApiService = AtApiService_1 = (function () {
                         _a = Topic.bind;
                         return [4 /*yield*/, this.request("/topic/update", params, authToken, null)];
                     case 1: return [2 /*return*/, new (_a.apply(Topic, [void 0, _c.sent()]))()];
+                }
+            });
+        });
+    };
+    //[history]
+    AtApiService.prototype.findHistoryOne = function (params) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, _b;
+            return __generator(this, function (_c) {
+                switch (_c.label) {
+                    case 0:
+                        _a = History.bind;
+                        return [4 /*yield*/, this.request("/history/find/one", params, null, null)];
+                    case 1: return [2 /*return*/, new (_a.apply(History, [void 0, _c.sent()]))()];
+                }
+            });
+        });
+    };
+    AtApiService.prototype.findHistoryIn = function (params) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.request("/history/find/in", params, null, null)];
+                    case 1: return [2 /*return*/, (_a.sent()).map(function (h) { return new History(h); })];
+                }
+            });
+        });
+    };
+    AtApiService.prototype.findHistoryAll = function (params) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.request("/history/find/all", params, null, null)];
+                    case 1: return [2 /*return*/, (_a.sent()).map(function (h) { return new History(h); })];
                 }
             });
         });
