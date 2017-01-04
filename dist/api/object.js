@@ -275,7 +275,6 @@ export { Profile };
 var Topic = (function () {
     function Topic(obj) {
         this.obj = obj;
-        this._histories = this.obj.histories.map(function (h) { return new History(h); });
     }
     Object.defineProperty(Topic.prototype, "id", {
         get: function () {
@@ -329,13 +328,6 @@ var Topic = (function () {
     Object.defineProperty(Topic.prototype, "resCount", {
         get: function () {
             return this.obj.resCount;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Topic.prototype, "histories", {
-        get: function () {
-            return this._histories;
         },
         enumerable: true,
         configurable: true

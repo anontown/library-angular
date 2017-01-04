@@ -167,9 +167,7 @@ export class Profile {
     }
 }
 export class Topic {
-    private _histories: History[];
     constructor(private obj: ITopicAPI) {
-        this._histories = this.obj.histories.map(h => new History(h));
     }
 
     get id(): string {
@@ -202,10 +200,6 @@ export class Topic {
 
     get resCount(): number {
         return this.obj.resCount;
-    }
-
-    get histories(): History[] {
-        return this._histories;
     }
 }
 export class Msg {

@@ -52,8 +52,7 @@ export interface ITopicAPI {
     mdtext: string,
     update: string,
     date: string,
-    resCount: number,
-    histories: IHistoryAPI[]
+    resCount: number
 }
 export interface IMsgAPI {
     id: string,
