@@ -1,4 +1,4 @@
-import { IProfileAPI, IResAPI, ITokenAPI, ITopicAPI, IUserAPI, IMsgAPI, IHistoryAPI, IClientAPI, ResDeleteFlag } from './api-object';
+import { IProfileAPI, IResAPI, ITokenAPI, ITopicAPI, IUserAPI, IMsgAPI, IHistoryAPI, IClientAPI, ResDeleteFlag, TopicType } from './api-object';
 export declare class Client {
     private obj;
     constructor(obj: IClientAPI);
@@ -61,6 +61,7 @@ export declare class Topic {
     readonly update: Date;
     readonly date: Date;
     readonly resCount: number;
+    readonly type: TopicType;
 }
 export declare class Msg {
     private obj;

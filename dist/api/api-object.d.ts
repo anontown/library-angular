@@ -51,7 +51,9 @@ export interface ITopicAPI {
     update: string;
     date: string;
     resCount: number;
+    type: TopicType;
 }
+export declare type TopicType = "normal" | "board";
 export interface IMsgAPI {
     id: string;
     receiver: string | null;

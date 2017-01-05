@@ -332,6 +332,13 @@ var Topic = (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(Topic.prototype, "type", {
+        get: function () {
+            return this.obj.type;
+        },
+        enumerable: true,
+        configurable: true
+    });
     return Topic;
 }());
 export { Topic };

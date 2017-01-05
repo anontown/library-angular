@@ -223,6 +223,13 @@ export class AtApiService {
             null,
             null)).map(t => new Topic(t));
     }
+    async findTopicBoard(): Promise<Topic[]> {
+        return (await this.request<ITopicAPI[]>(
+            "/topic/find/board",
+            null,
+            null,
+            null)).map(t => new Topic(t));
+    }
     async findTopic(
         params: {
             title: string,

@@ -1,5 +1,5 @@
 import { Client, Token, Topic, Res, Msg, Profile, User, History } from './object';
-import { ITokenReqAPI } from './api-object';
+import { ITokenReqAPI, TopicType } from './api-object';
 import { IAuthUser, IAuthToken } from './auth';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
@@ -67,6 +67,7 @@ export declare class AtApiService {
         title: string;
         category: string[];
         text: string;
+        type: TopicType;
     }): Promise<Topic>;
     findTopicOne(params: {
         id: string;
@@ -74,6 +75,7 @@ export declare class AtApiService {
     findTopicIn(params: {
         ids: string[];
     }): Promise<Topic[]>;
+    findTopicBoard(): Promise<Topic[]>;
     findTopic(params: {
         title: string;
         category: string[];
