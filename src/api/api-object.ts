@@ -52,8 +52,11 @@ export interface ITopicAPI {
     mdtext: string,
     update: string,
     date: string,
-    resCount: number
+    resCount: number,
+    type: TopicType
 }
+
+export type TopicType = "normal" | "board";
 export interface IMsgAPI {
     id: string,
     receiver: string | null,

@@ -18,7 +18,8 @@ import {
     IUserAPI,
     IClientAPI,
     IHistoryAPI,
-    IProfileAPI
+    IProfileAPI,
+    TopicType
 } from './api-object';
 import { IAuthUser, IAuthToken } from './auth';
 import { Http, Headers, Response } from '@angular/http';
@@ -193,7 +194,8 @@ export class AtApiService {
         params: {
             title: string,
             category: string[],
-            text: string
+            text: string,
+            type: TopicType
         }): Promise<Topic> {
         return new Topic(await this.request<ITopicAPI>(
             "/topic/create",

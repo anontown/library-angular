@@ -7,7 +7,8 @@ import {
     IMsgAPI,
     IHistoryAPI,
     IClientAPI,
-    ResDeleteFlag
+    ResDeleteFlag,
+    TopicType
 } from './api-object';
 
 export class Client {
@@ -200,6 +201,10 @@ export class Topic {
 
     get resCount(): number {
         return this.obj.resCount;
+    }
+
+    get type(): TopicType {
+        return this.obj.type;
     }
 }
 export class Msg {
