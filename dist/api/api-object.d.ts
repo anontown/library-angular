@@ -31,6 +31,7 @@ export interface IResAPI {
     profile: string | null;
     replyCount: number;
     isVote: boolean | null;
+    isReply: boolean | null;
 }
 export declare type ResDeleteFlag = "active" | "self" | "vote" | "freeze";
 export interface IProfileAPI {

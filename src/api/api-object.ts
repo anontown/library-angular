@@ -30,7 +30,8 @@ export interface IResAPI {
     hash: string,
     profile: string | null,
     replyCount: number,
-    isVote: boolean | null
+    isVote: boolean | null,
+    isReply: boolean | null
 }
 
 export type ResDeleteFlag = "active" | "self" | "vote" | "freeze";
