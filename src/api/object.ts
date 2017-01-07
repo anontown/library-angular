@@ -111,6 +111,10 @@ export class Res {
         return this.obj.reply;
     }
 
+    get isReply(): boolean | null {
+        return this.obj.isReply;
+    }
+
     get deleteFlag(): ResDeleteFlag {
         return this.obj.deleteFlag;
     }

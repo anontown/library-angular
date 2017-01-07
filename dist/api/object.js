@@ -171,6 +171,13 @@ var Res = (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(Res.prototype, "isReply", {
+        get: function () {
+            return this.obj.isReply;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(Res.prototype, "deleteFlag", {
         get: function () {
             return this.obj.deleteFlag;

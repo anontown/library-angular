@@ -32,6 +32,7 @@ export declare class Res {
     readonly text: string;
     readonly mdtext: string;
     readonly reply: string | null;
+    readonly isReply: boolean | null;
     readonly deleteFlag: ResDeleteFlag;
     readonly vote: number;
     readonly hash: string;
