@@ -215,7 +215,6 @@ export class Msg {
     constructor(private obj: IMsgAPI) {
     }
 
-
     get id(): string {
         return this.obj.id;
     }

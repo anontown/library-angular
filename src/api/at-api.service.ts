@@ -60,7 +60,8 @@ export class AtApiService {
             name: string,
             text: string,
             reply: string | null,
-            profile: string | null
+            profile: string | null,
+            age:boolean
         }): Promise<Res> {
         return new Res(await this.request<IResAPI>(
             "/res/create",
