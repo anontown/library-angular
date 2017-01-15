@@ -19,6 +19,7 @@ export declare class AtApiService {
         text: string;
         reply: string | null;
         profile: string | null;
+        age: boolean;
     }): Promise<Res>;
     findResOne(authToken: IAuthToken | null, params: {
         id: string;
