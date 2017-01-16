@@ -116,6 +116,7 @@ export declare class AtApiService {
     createProfile(authToken: IAuthToken, params: {
         name: string;
         text: string;
+        sn: string;
     }): Promise<Profile>;
     findProfileOne(authToken: IAuthToken | null, params: {
         id: string;
@@ -128,6 +129,7 @@ export declare class AtApiService {
         id: string;
         name: string;
         text: string;
+        sn: string;
     }): Promise<Profile>;
     findTokenOne(authToken: IAuthToken): Promise<Token>;
     findTokenAll(authUser: IAuthUser): Promise<Token[]>;
@@ -161,6 +163,7 @@ export declare class AtApiService {
     }): Promise<User>;
     updateUser(authUser: IAuthUser, params: {
         pass: string;
+        sn: string;
     }): Promise<User>;
     createClient(authUser: IAuthUser, params: {
         name: string;

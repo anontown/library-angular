@@ -241,6 +241,13 @@ var Profile = (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(Profile.prototype, "sn", {
+        get: function () {
+            return this.obj.sn;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(Profile.prototype, "name", {
         get: function () {
             return this.obj.name;

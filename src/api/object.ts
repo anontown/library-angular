@@ -151,6 +151,10 @@ export class Profile {
         return this.obj.user;
     }
 
+    get sn(): string {
+        return this.obj.sn;
+    }
+
     get name(): string {
         return this.obj.name;
     }

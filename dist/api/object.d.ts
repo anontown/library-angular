@@ -45,6 +45,7 @@ export declare class Profile {
     constructor(obj: IProfileAPI);
     readonly id: string;
     readonly user: string | null;
+    readonly sn: string;
     readonly name: string;
     readonly text: string;
     readonly mdtext: string;

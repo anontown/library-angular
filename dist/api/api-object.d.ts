@@ -42,6 +42,7 @@ export interface IProfileAPI {
     mdtext: string;
     date: string;
     update: string;
+    sn: string;
 }
 export interface ITopicAPI {
     id: string;

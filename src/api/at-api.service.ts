@@ -61,7 +61,7 @@ export class AtApiService {
             text: string,
             reply: string | null,
             profile: string | null,
-            age:boolean
+            age: boolean
         }): Promise<Res> {
         return new Res(await this.request<IResAPI>(
             "/res/create",
@@ -336,7 +336,8 @@ export class AtApiService {
     async createProfile(authToken: IAuthToken,
         params: {
             name: string,
-            text: string
+            text: string,
+            sn: string
         }): Promise<Profile> {
         return new Profile(await this.request<IProfileAPI>(
             "/profile/create",
@@ -375,7 +376,8 @@ export class AtApiService {
         params: {
             id: string,
             name: string,
-            text: string
+            text: string,
+            sn: string
         }): Promise<Profile> {
         return new Profile(await this.request<IProfileAPI>(
             "/profile/update",
@@ -497,7 +499,8 @@ export class AtApiService {
     }
     async updateUser(authUser: IAuthUser,
         params: {
-            pass: string
+            pass: string,
+            sn: string
         }): Promise<User> {
         return new User(await this.request<IUserAPI>(
             "/user/update",

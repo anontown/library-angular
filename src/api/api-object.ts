@@ -43,7 +43,8 @@ export interface IProfileAPI {
     text: string,
     mdtext: string,
     date: string,
-    update: string
+    update: string,
+    sn: string
 }
 export interface ITopicAPI {
     id: string,
