@@ -179,6 +179,16 @@ export class AtApiService {
             authToken,
             null));
     }
+    async cvRes(authToken: IAuthToken,
+        params: {
+            id: string
+        }): Promise<Res> {
+        return new Res(await this.request<IResAPI>(
+            "/res/cv",
+            params,
+            authToken,
+            null));
+    }
     async delRes(authToken: IAuthToken,
         params: {
             id: string

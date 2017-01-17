@@ -8,7 +8,8 @@ import {
     IHistoryAPI,
     IClientAPI,
     ResDeleteFlag,
-    TopicType
+    TopicType,
+    ResVoteFlag
 } from './api-object';
 
 export class Client {
@@ -119,8 +120,12 @@ export class Res {
         return this.obj.deleteFlag;
     }
 
-    get vote(): number {
-        return this.obj.vote;
+    get uv(): number {
+        return this.obj.uv;
+    }
+
+    get dv(): number {
+        return this.obj.dv;
     }
 
     get hash(): string {
@@ -135,8 +140,8 @@ export class Res {
         return this.obj.replyCount;
     }
 
-    get isVote(): boolean | null {
-        return this.obj.isVote;
+    get voteFlag(): ResVoteFlag | null {
+        return this.obj.voteFlag;
     }
 }
 export class Profile {

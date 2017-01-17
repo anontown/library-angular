@@ -202,6 +202,19 @@ var AtApiService = AtApiService_1 = (function () {
             });
         });
     };
+    AtApiService.prototype.cvRes = function (authToken, params) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, _b;
+            return __generator(this, function (_c) {
+                switch (_c.label) {
+                    case 0:
+                        _a = Res.bind;
+                        return [4 /*yield*/, this.request("/res/cv", params, authToken, null)];
+                    case 1: return [2 /*return*/, new (_a.apply(Res, [void 0, _c.sent()]))()];
+                }
+            });
+        });
+    };
     AtApiService.prototype.delRes = function (authToken, params) {
         return __awaiter(this, void 0, void 0, function () {
             var _a, _b;

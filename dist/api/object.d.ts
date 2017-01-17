@@ -1,4 +1,4 @@
-import { IProfileAPI, IResAPI, ITokenAPI, ITopicAPI, IUserAPI, IMsgAPI, IHistoryAPI, IClientAPI, ResDeleteFlag, TopicType } from './api-object';
+import { IProfileAPI, IResAPI, ITokenAPI, ITopicAPI, IUserAPI, IMsgAPI, IHistoryAPI, IClientAPI, ResDeleteFlag, TopicType, ResVoteFlag } from './api-object';
 export declare class Client {
     private obj;
     constructor(obj: IClientAPI);
@@ -34,11 +34,12 @@ export declare class Res {
     readonly reply: string | null;
     readonly isReply: boolean | null;
     readonly deleteFlag: ResDeleteFlag;
-    readonly vote: number;
+    readonly uv: number;
+    readonly dv: number;
     readonly hash: string;
     readonly profile: string | null;
     readonly replyCount: number;
-    readonly isVote: boolean | null;
+    readonly voteFlag: ResVoteFlag | null;
 }
 export declare class Profile {
     private obj;

@@ -185,9 +185,16 @@ var Res = (function () {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(Res.prototype, "vote", {
+    Object.defineProperty(Res.prototype, "uv", {
         get: function () {
-            return this.obj.vote;
+            return this.obj.uv;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Res.prototype, "dv", {
+        get: function () {
+            return this.obj.dv;
         },
         enumerable: true,
         configurable: true
@@ -213,9 +220,9 @@ var Res = (function () {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(Res.prototype, "isVote", {
+    Object.defineProperty(Res.prototype, "voteFlag", {
         get: function () {
-            return this.obj.isVote;
+            return this.obj.voteFlag;
         },
         enumerable: true,
         configurable: true

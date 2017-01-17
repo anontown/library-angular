@@ -26,14 +26,16 @@ export interface IResAPI {
     mdtext: string,
     reply: string | null,
     deleteFlag: ResDeleteFlag,
-    vote: number,
+    uv: number,
+    dv: number,
     hash: string,
     profile: string | null,
     replyCount: number,
-    isVote: boolean | null,
+    voteFlag: ResVoteFlag | null,
     isReply: boolean | null
 }
 
+export type ResVoteFlag = "uv" | "dv" | "not";
 export type ResDeleteFlag = "active" | "self" | "vote" | "freeze";
 
 export interface IProfileAPI {

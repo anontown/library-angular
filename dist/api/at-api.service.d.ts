@@ -61,6 +61,9 @@ export declare class AtApiService {
     dvRes(authToken: IAuthToken, params: {
         id: string;
     }): Promise<Res>;
+    cvRes(authToken: IAuthToken, params: {
+        id: string;
+    }): Promise<Res>;
     delRes(authToken: IAuthToken, params: {
         id: string;
     }): Promise<Res>;
