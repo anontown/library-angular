@@ -219,6 +219,10 @@ export class Topic {
     get type(): TopicType {
         return this.obj.type;
     }
+
+    get active(): boolean {
+        return this.obj.active;
+    }
 }
 export class Msg {
     constructor(private obj: IMsgAPI) {

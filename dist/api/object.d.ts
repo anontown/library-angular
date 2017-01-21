@@ -65,6 +65,7 @@ export declare class Topic {
     readonly date: Date;
     readonly resCount: number;
     readonly type: TopicType;
+    readonly active: boolean;
 }
 export declare class Msg {
     private obj;

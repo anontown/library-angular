@@ -85,6 +85,7 @@ export declare class AtApiService {
         category: string[];
         skip: number;
         limit: number;
+        activeOnly: boolean;
     }): Promise<Topic[]>;
     updateTopic(authToken: IAuthToken, params: {
         id: string;

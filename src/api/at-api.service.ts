@@ -246,7 +246,8 @@ export class AtApiService {
             title: string,
             category: string[],
             skip: number,
-            limit: number
+            limit: number,
+            activeOnly: boolean
         }): Promise<Topic[]> {
         return (await this.request<ITopicAPI[]>(
             "/topic/find",

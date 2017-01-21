@@ -56,8 +56,9 @@ export interface ITopicAPI {
     date: string;
     resCount: number;
     type: TopicType;
+    active: boolean;
 }
-export declare type TopicType = "normal" | "board";
+export declare type TopicType = "normal" | "board" | "one";
 export interface IMsgAPI {
     id: string;
     receiver: string | null;

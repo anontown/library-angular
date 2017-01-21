@@ -360,6 +360,13 @@ var Topic = (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(Topic.prototype, "active", {
+        get: function () {
+            return this.obj.active;
+        },
+        enumerable: true,
+        configurable: true
+    });
     return Topic;
 }());
 export { Topic };

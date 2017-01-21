@@ -57,10 +57,11 @@ export interface ITopicAPI {
     update: string,
     date: string,
     resCount: number,
-    type: TopicType
+    type: TopicType,
+    active: boolean
 }
 
-export type TopicType = "normal" | "board";
+export type TopicType = "normal" | "board" | "one";
 export interface IMsgAPI {
     id: string,
     receiver: string | null,
