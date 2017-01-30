@@ -79,7 +79,9 @@ export declare class AtApiService {
     findTopicIn(params: {
         ids: string[];
     }): Promise<Topic[]>;
-    findTopicTags(): Promise<{
+    findTopicTags(params: {
+        limit: number;
+    }): Promise<{
         name: string;
         count: number;
     }[]>;

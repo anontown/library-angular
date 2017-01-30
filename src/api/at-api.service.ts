@@ -234,10 +234,10 @@ export class AtApiService {
             null,
             null)).map(t => new Topic(t));
     }
-    async findTopicTags(): Promise<{name:string,count:number}[]> {
+    async findTopicTags(params:{limit:number}): Promise<{name:string,count:number}[]> {
         return (await this.request<{name:string,count:number}[]>(
             "/topic/find/tags",
-            null,
+            params,
             null,
             null));
     }
