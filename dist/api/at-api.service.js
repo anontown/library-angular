@@ -265,12 +265,12 @@ var AtApiService = AtApiService_1 = (function () {
             });
         });
     };
-    AtApiService.prototype.findTopicBoard = function () {
+    AtApiService.prototype.findTopicTags = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/topic/find/board", null, null, null)];
-                    case 1: return [2 /*return*/, (_a.sent()).map(function (t) { return new Topic(t); })];
+                    case 0: return [4 /*yield*/, this.request("/topic/find/tags", null, null, null)];
+                    case 1: return [2 /*return*/, (_a.sent())];
                 }
             });
         });

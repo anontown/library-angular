@@ -204,7 +204,7 @@ export class AtApiService {
     async createTopic(authToken: IAuthToken,
         params: {
             title: string,
-            category: string[],
+            tags: string[],
             text: string,
             type: TopicType
         }): Promise<Topic> {
@@ -234,17 +234,17 @@ export class AtApiService {
             null,
             null)).map(t => new Topic(t));
     }
-    async findTopicBoard(): Promise<Topic[]> {
-        return (await this.request<ITopicAPI[]>(
-            "/topic/find/board",
+    async findTopicTags(): Promise<{name:string,count:number}[]> {
+        return (await this.request<{name:string,count:number}[]>(
+            "/topic/find/tags",
             null,
             null,
-            null)).map(t => new Topic(t));
+            null));
     }
     async findTopic(
         params: {
             title: string,
-            category: string[],
+            tags: string[],
             skip: number,
             limit: number,
             activeOnly: boolean
@@ -259,7 +259,7 @@ export class AtApiService {
         params: {
             id: string,
             title: string,
-            category: string[],
+            tags: string[],
             text: string
         }): Promise<Topic> {
         return new Topic(await this.request<ITopicAPI>(

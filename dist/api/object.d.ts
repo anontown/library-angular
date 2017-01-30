@@ -15,7 +15,7 @@ export declare class History {
     readonly id: string;
     readonly topic: string;
     readonly title: string;
-    readonly category: string[];
+    readonly tags: string[];
     readonly text: string;
     readonly mdtext: string;
     readonly date: Date;
@@ -58,7 +58,7 @@ export declare class Topic {
     constructor(obj: ITopicAPI);
     readonly id: string;
     readonly title: string;
-    readonly category: string[];
+    readonly tags: string[];
     readonly text: string;
     readonly mdtext: string;
     readonly update: Date;

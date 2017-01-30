@@ -10,7 +10,7 @@ export interface IHistoryAPI {
     id: string,
     topic: string,
     title: string,
-    category: string[],
+    tags: string[],
     text: string,
     mdtext: string,
     date: string,
@@ -51,7 +51,7 @@ export interface IProfileAPI {
 export interface ITopicAPI {
     id: string,
     title: string,
-    category: string[],
+    tags: string[],
     text: string,
     mdtext: string,
     update: string,
@@ -61,7 +61,7 @@ export interface ITopicAPI {
     active: boolean
 }
 
-export type TopicType = "normal" | "board" | "one";
+export type TopicType = "normal"| "one";
 export interface IMsgAPI {
     id: string,
     receiver: string | null,

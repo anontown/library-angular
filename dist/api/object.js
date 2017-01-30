@@ -73,9 +73,9 @@ var History = (function () {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(History.prototype, "category", {
+    Object.defineProperty(History.prototype, "tags", {
         get: function () {
-            return this.obj.category;
+            return this.obj.tags;
         },
         enumerable: true,
         configurable: true
@@ -311,9 +311,9 @@ var Topic = (function () {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(Topic.prototype, "category", {
+    Object.defineProperty(Topic.prototype, "tags", {
         get: function () {
-            return this.obj.category;
+            return this.obj.tags;
         },
         enumerable: true,
         configurable: true

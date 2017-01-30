@@ -69,7 +69,7 @@ export declare class AtApiService {
     }): Promise<Res>;
     createTopic(authToken: IAuthToken, params: {
         title: string;
-        category: string[];
+        tags: string[];
         text: string;
         type: TopicType;
     }): Promise<Topic>;
@@ -79,10 +79,13 @@ export declare class AtApiService {
     findTopicIn(params: {
         ids: string[];
     }): Promise<Topic[]>;
-    findTopicBoard(): Promise<Topic[]>;
+    findTopicTags(): Promise<{
+        name: string;
+        count: number;
+    }[]>;
     findTopic(params: {
         title: string;
-        category: string[];
+        tags: string[];
         skip: number;
         limit: number;
         activeOnly: boolean;
@@ -90,7 +93,7 @@ export declare class AtApiService {
     updateTopic(authToken: IAuthToken, params: {
         id: string;
         title: string;
-        category: string[];
+        tags: string[];
         text: string;
     }): Promise<Topic>;
     findHistoryOne(params: {

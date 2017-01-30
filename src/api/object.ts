@@ -56,8 +56,8 @@ export class History {
         return this.obj.title;
     }
 
-    get category(): string[] {
-        return this.obj.category;
+    get tags(): string[] {
+        return this.obj.tags;
     }
 
     get text(): string {
@@ -192,8 +192,8 @@ export class Topic {
         return this.obj.title;
     }
 
-    get category(): string[] {
-        return this.obj.category;
+    get tags(): string[] {
+        return this.obj.tags;
     }
 
     get text(): string {
