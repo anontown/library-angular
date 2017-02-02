@@ -169,6 +169,7 @@ export declare class AtApiService {
     createUser(params: {
         sn: string;
         pass: string;
+        recaptcha: string;
     }): Promise<User>;
     updateUser(authUser: IAuthUser, params: {
         pass: string;

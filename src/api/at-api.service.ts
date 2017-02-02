@@ -500,7 +500,8 @@ export class AtApiService {
     async createUser(
         params: {
             sn: string,
-            pass: string
+            pass: string,
+            recaptcha:string
         }): Promise<User> {
         return new User(await this.request<IUserAPI>(
             "/user/create",
