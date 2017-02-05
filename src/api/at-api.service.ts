@@ -234,8 +234,8 @@ export class AtApiService {
             null,
             null)).map(t => new Topic(t));
     }
-    async findTopicTags(params:{limit:number}): Promise<{name:string,count:number}[]> {
-        return (await this.request<{name:string,count:number}[]>(
+    async findTopicTags(params: { limit: number }): Promise<{ name: string, count: number }[]> {
+        return (await this.request<{ name: string, count: number }[]>(
             "/topic/find/tags",
             params,
             null,
@@ -453,6 +453,7 @@ export class AtApiService {
     }
     async setTokenStorage(authToken: IAuthToken,
         params: {
+            name: string,
             value: string
         }): Promise<void> {
         return await this.request<void>(
@@ -461,9 +462,30 @@ export class AtApiService {
             authToken,
             null);
     }
-    async getTokenStorage(authToken: IAuthToken): Promise<string> {
+    async getTokenStorage(authToken: IAuthToken,
+        params: {
+            name: string
+        }): Promise<string> {
         return await this.request<string>(
             "/token/storage/get",
+            params,
+            authToken,
+            null);
+    }
+    async delTokenStorage(authToken: IAuthToken,
+        params: {
+            name: string
+        }): Promise<void> {
+        return await this.request<void>(
+            "/token/storage/delete",
+            params,
+            authToken,
+            null);
+    }
+
+    async listTokenStorage(authToken: IAuthToken): Promise<string[]> {
+        return await this.request<string[]>(
+            "/token/storage/list",
             null,
             authToken,
             null);
@@ -501,7 +523,7 @@ export class AtApiService {
         params: {
             sn: string,
             pass: string,
-            recaptcha:string
+            recaptcha: string
         }): Promise<User> {
         return new User(await this.request<IUserAPI>(
             "/user/create",

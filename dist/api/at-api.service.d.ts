@@ -155,9 +155,16 @@ export declare class AtApiService {
         client: string;
     }): Promise<Token>;
     setTokenStorage(authToken: IAuthToken, params: {
+        name: string;
         value: string;
     }): Promise<void>;
-    getTokenStorage(authToken: IAuthToken): Promise<string>;
+    getTokenStorage(authToken: IAuthToken, params: {
+        name: string;
+    }): Promise<string>;
+    delTokenStorage(authToken: IAuthToken, params: {
+        name: string;
+    }): Promise<void>;
+    listTokenStorage(authToken: IAuthToken): Promise<string[]>;
     createTokenReq(authToken: IAuthToken): Promise<ITokenReqAPI>;
     findTokenReq(params: {
         id: string;

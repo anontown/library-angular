@@ -522,11 +522,31 @@ var AtApiService = AtApiService_1 = (function () {
             });
         });
     };
-    AtApiService.prototype.getTokenStorage = function (authToken) {
+    AtApiService.prototype.getTokenStorage = function (authToken, params) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/token/storage/get", null, authToken, null)];
+                    case 0: return [4 /*yield*/, this.request("/token/storage/get", params, authToken, null)];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    AtApiService.prototype.delTokenStorage = function (authToken, params) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.request("/token/storage/delete", params, authToken, null)];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    AtApiService.prototype.listTokenStorage = function (authToken) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.request("/token/storage/list", null, authToken, null)];
                     case 1: return [2 /*return*/, _a.sent()];
                 }
             });
