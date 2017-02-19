@@ -58,7 +58,7 @@ var AtApiService = AtApiService_1 = (function () {
     function AtApiService(http) {
         this.http = http;
     }
-    AtApiService.prototype.request = function (name, params, authToken, authUser) {
+    AtApiService.prototype.request = function (name, params, authToken, authUser, recaptcha) {
         return __awaiter(this, void 0, void 0, function () {
             var url, headers, res;
             return __generator(this, function (_a) {
@@ -67,7 +67,7 @@ var AtApiService = AtApiService_1 = (function () {
                         url = AtApiService_1.serverURL + name;
                         headers = new Headers();
                         headers.append('Content-Type', 'application/json');
-                        return [4 /*yield*/, this.http.post(url, JSON.stringify({ authUser: authUser, authToken: authToken, params: params }), {
+                        return [4 /*yield*/, this.http.post(url, JSON.stringify({ authUser: authUser, authToken: authToken, recaptcha: recaptcha, params: params }), {
                                 headers: headers
                             }).toPromise().catch(function (r) {
                                 throw new AtError(r.status, r.json().message);
@@ -87,7 +87,7 @@ var AtApiService = AtApiService_1 = (function () {
                 switch (_c.label) {
                     case 0:
                         _a = Res.bind;
-                        return [4 /*yield*/, this.request("/res/create", params, authToken, null)];
+                        return [4 /*yield*/, this.request("/res/create", params, authToken, null, null)];
                     case 1: return [2 /*return*/, new (_a.apply(Res, [void 0, _c.sent()]))()];
                 }
             });
@@ -100,7 +100,7 @@ var AtApiService = AtApiService_1 = (function () {
                 switch (_c.label) {
                     case 0:
                         _a = Res.bind;
-                        return [4 /*yield*/, this.request("/res/find/one", params, authToken, null)];
+                        return [4 /*yield*/, this.request("/res/find/one", params, authToken, null, null)];
                     case 1: return [2 /*return*/, new (_a.apply(Res, [void 0, _c.sent()]))()];
                 }
             });
@@ -110,7 +110,7 @@ var AtApiService = AtApiService_1 = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/res/find/in", params, authToken, null)];
+                    case 0: return [4 /*yield*/, this.request("/res/find/in", params, authToken, null, null)];
                     case 1: return [2 /*return*/, (_a.sent()).map(function (r) { return new Res(r); })];
                 }
             });
@@ -120,7 +120,7 @@ var AtApiService = AtApiService_1 = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/res/find", params, authToken, null)];
+                    case 0: return [4 /*yield*/, this.request("/res/find", params, authToken, null, null)];
                     case 1: return [2 /*return*/, (_a.sent()).map(function (r) { return new Res(r); })];
                 }
             });
@@ -130,7 +130,7 @@ var AtApiService = AtApiService_1 = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/res/find/new", params, authToken, null)];
+                    case 0: return [4 /*yield*/, this.request("/res/find/new", params, authToken, null, null)];
                     case 1: return [2 /*return*/, (_a.sent()).map(function (r) { return new Res(r); })];
                 }
             });
@@ -140,7 +140,7 @@ var AtApiService = AtApiService_1 = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/res/find/hash", params, authToken, null)];
+                    case 0: return [4 /*yield*/, this.request("/res/find/hash", params, authToken, null, null)];
                     case 1: return [2 /*return*/, (_a.sent()).map(function (r) { return new Res(r); })];
                 }
             });
@@ -150,7 +150,7 @@ var AtApiService = AtApiService_1 = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/res/find/reply", params, authToken, null)];
+                    case 0: return [4 /*yield*/, this.request("/res/find/reply", params, authToken, null, null)];
                     case 1: return [2 /*return*/, (_a.sent()).map(function (r) { return new Res(r); })];
                 }
             });
@@ -160,7 +160,7 @@ var AtApiService = AtApiService_1 = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/res/find/notice", params, authToken, null)];
+                    case 0: return [4 /*yield*/, this.request("/res/find/notice", params, authToken, null, null)];
                     case 1: return [2 /*return*/, (_a.sent()).map(function (r) { return new Res(r); })];
                 }
             });
@@ -170,7 +170,7 @@ var AtApiService = AtApiService_1 = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/res/find/notice/new", params, authToken, null)];
+                    case 0: return [4 /*yield*/, this.request("/res/find/notice/new", params, authToken, null, null)];
                     case 1: return [2 /*return*/, (_a.sent()).map(function (r) { return new Res(r); })];
                 }
             });
@@ -183,7 +183,7 @@ var AtApiService = AtApiService_1 = (function () {
                 switch (_c.label) {
                     case 0:
                         _a = Res.bind;
-                        return [4 /*yield*/, this.request("/res/uv", params, authToken, null)];
+                        return [4 /*yield*/, this.request("/res/uv", params, authToken, null, null)];
                     case 1: return [2 /*return*/, new (_a.apply(Res, [void 0, _c.sent()]))()];
                 }
             });
@@ -196,7 +196,7 @@ var AtApiService = AtApiService_1 = (function () {
                 switch (_c.label) {
                     case 0:
                         _a = Res.bind;
-                        return [4 /*yield*/, this.request("/res/dv", params, authToken, null)];
+                        return [4 /*yield*/, this.request("/res/dv", params, authToken, null, null)];
                     case 1: return [2 /*return*/, new (_a.apply(Res, [void 0, _c.sent()]))()];
                 }
             });
@@ -209,7 +209,7 @@ var AtApiService = AtApiService_1 = (function () {
                 switch (_c.label) {
                     case 0:
                         _a = Res.bind;
-                        return [4 /*yield*/, this.request("/res/cv", params, authToken, null)];
+                        return [4 /*yield*/, this.request("/res/cv", params, authToken, null, null)];
                     case 1: return [2 /*return*/, new (_a.apply(Res, [void 0, _c.sent()]))()];
                 }
             });
@@ -222,7 +222,7 @@ var AtApiService = AtApiService_1 = (function () {
                 switch (_c.label) {
                     case 0:
                         _a = Res.bind;
-                        return [4 /*yield*/, this.request("/res/del", params, authToken, null)];
+                        return [4 /*yield*/, this.request("/res/del", params, authToken, null, null)];
                     case 1: return [2 /*return*/, new (_a.apply(Res, [void 0, _c.sent()]))()];
                 }
             });
@@ -236,7 +236,7 @@ var AtApiService = AtApiService_1 = (function () {
                 switch (_c.label) {
                     case 0:
                         _a = Topic.bind;
-                        return [4 /*yield*/, this.request("/topic/create", params, authToken, null)];
+                        return [4 /*yield*/, this.request("/topic/create", params, authToken, null, null)];
                     case 1: return [2 /*return*/, new (_a.apply(Topic, [void 0, _c.sent()]))()];
                 }
             });
@@ -249,7 +249,7 @@ var AtApiService = AtApiService_1 = (function () {
                 switch (_c.label) {
                     case 0:
                         _a = Topic.bind;
-                        return [4 /*yield*/, this.request("/topic/find/one", params, null, null)];
+                        return [4 /*yield*/, this.request("/topic/find/one", params, null, null, null)];
                     case 1: return [2 /*return*/, new (_a.apply(Topic, [void 0, _c.sent()]))()];
                 }
             });
@@ -259,7 +259,7 @@ var AtApiService = AtApiService_1 = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/topic/find/in", params, null, null)];
+                    case 0: return [4 /*yield*/, this.request("/topic/find/in", params, null, null, null)];
                     case 1: return [2 /*return*/, (_a.sent()).map(function (t) { return new Topic(t); })];
                 }
             });
@@ -269,7 +269,7 @@ var AtApiService = AtApiService_1 = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/topic/find/tags", params, null, null)];
+                    case 0: return [4 /*yield*/, this.request("/topic/find/tags", params, null, null, null)];
                     case 1: return [2 /*return*/, (_a.sent())];
                 }
             });
@@ -279,7 +279,7 @@ var AtApiService = AtApiService_1 = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/topic/find", params, null, null)];
+                    case 0: return [4 /*yield*/, this.request("/topic/find", params, null, null, null)];
                     case 1: return [2 /*return*/, (_a.sent()).map(function (t) { return new Topic(t); })];
                 }
             });
@@ -292,7 +292,7 @@ var AtApiService = AtApiService_1 = (function () {
                 switch (_c.label) {
                     case 0:
                         _a = Topic.bind;
-                        return [4 /*yield*/, this.request("/topic/update", params, authToken, null)];
+                        return [4 /*yield*/, this.request("/topic/update", params, authToken, null, null)];
                     case 1: return [2 /*return*/, new (_a.apply(Topic, [void 0, _c.sent()]))()];
                 }
             });
@@ -306,7 +306,7 @@ var AtApiService = AtApiService_1 = (function () {
                 switch (_c.label) {
                     case 0:
                         _a = History.bind;
-                        return [4 /*yield*/, this.request("/history/find/one", params, null, null)];
+                        return [4 /*yield*/, this.request("/history/find/one", params, null, null, null)];
                     case 1: return [2 /*return*/, new (_a.apply(History, [void 0, _c.sent()]))()];
                 }
             });
@@ -316,7 +316,7 @@ var AtApiService = AtApiService_1 = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/history/find/in", params, null, null)];
+                    case 0: return [4 /*yield*/, this.request("/history/find/in", params, null, null, null)];
                     case 1: return [2 /*return*/, (_a.sent()).map(function (h) { return new History(h); })];
                 }
             });
@@ -326,7 +326,7 @@ var AtApiService = AtApiService_1 = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/history/find/all", params, null, null)];
+                    case 0: return [4 /*yield*/, this.request("/history/find/all", params, null, null, null)];
                     case 1: return [2 /*return*/, (_a.sent()).map(function (h) { return new History(h); })];
                 }
             });
@@ -340,7 +340,7 @@ var AtApiService = AtApiService_1 = (function () {
                 switch (_c.label) {
                     case 0:
                         _a = Msg.bind;
-                        return [4 /*yield*/, this.request("/msg/find/one", params, authToken, null)];
+                        return [4 /*yield*/, this.request("/msg/find/one", params, authToken, null, null)];
                     case 1: return [2 /*return*/, new (_a.apply(Msg, [void 0, _c.sent()]))()];
                 }
             });
@@ -350,7 +350,7 @@ var AtApiService = AtApiService_1 = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/msg/find/in", params, authToken, null)];
+                    case 0: return [4 /*yield*/, this.request("/msg/find/in", params, authToken, null, null)];
                     case 1: return [2 /*return*/, (_a.sent()).map(function (m) { return new Msg(m); })];
                 }
             });
@@ -360,7 +360,7 @@ var AtApiService = AtApiService_1 = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/msg/find", params, authToken, null)];
+                    case 0: return [4 /*yield*/, this.request("/msg/find", params, authToken, null, null)];
                     case 1: return [2 /*return*/, (_a.sent()).map(function (m) { return new Msg(m); })];
                 }
             });
@@ -370,7 +370,7 @@ var AtApiService = AtApiService_1 = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/msg/find/new", params, authToken, null)];
+                    case 0: return [4 /*yield*/, this.request("/msg/find/new", params, authToken, null, null)];
                     case 1: return [2 /*return*/, (_a.sent()).map(function (m) { return new Msg(m); })];
                 }
             });
@@ -384,7 +384,7 @@ var AtApiService = AtApiService_1 = (function () {
                 switch (_c.label) {
                     case 0:
                         _a = Profile.bind;
-                        return [4 /*yield*/, this.request("/profile/create", params, authToken, null)];
+                        return [4 /*yield*/, this.request("/profile/create", params, authToken, null, null)];
                     case 1: return [2 /*return*/, new (_a.apply(Profile, [void 0, _c.sent()]))()];
                 }
             });
@@ -397,7 +397,7 @@ var AtApiService = AtApiService_1 = (function () {
                 switch (_c.label) {
                     case 0:
                         _a = Profile.bind;
-                        return [4 /*yield*/, this.request("/profile/find/one", params, authToken, null)];
+                        return [4 /*yield*/, this.request("/profile/find/one", params, authToken, null, null)];
                     case 1: return [2 /*return*/, new (_a.apply(Profile, [void 0, _c.sent()]))()];
                 }
             });
@@ -407,7 +407,7 @@ var AtApiService = AtApiService_1 = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/profile/find/in", params, authToken, null)];
+                    case 0: return [4 /*yield*/, this.request("/profile/find/in", params, authToken, null, null)];
                     case 1: return [2 /*return*/, (_a.sent()).map(function (p) { return new Profile(p); })];
                 }
             });
@@ -417,7 +417,7 @@ var AtApiService = AtApiService_1 = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/profile/find/all", null, authToken, null)];
+                    case 0: return [4 /*yield*/, this.request("/profile/find/all", null, authToken, null, null)];
                     case 1: return [2 /*return*/, (_a.sent()).map(function (p) { return new Profile(p); })];
                 }
             });
@@ -430,7 +430,7 @@ var AtApiService = AtApiService_1 = (function () {
                 switch (_c.label) {
                     case 0:
                         _a = Profile.bind;
-                        return [4 /*yield*/, this.request("/profile/update", params, authToken, null)];
+                        return [4 /*yield*/, this.request("/profile/update", params, authToken, null, null)];
                     case 1: return [2 /*return*/, new (_a.apply(Profile, [void 0, _c.sent()]))()];
                 }
             });
@@ -444,7 +444,7 @@ var AtApiService = AtApiService_1 = (function () {
                 switch (_c.label) {
                     case 0:
                         _a = Token.bind;
-                        return [4 /*yield*/, this.request("/token/find/one", null, authToken, null)];
+                        return [4 /*yield*/, this.request("/token/find/one", null, authToken, null, null)];
                     case 1: return [2 /*return*/, new (_a.apply(Token, [void 0, _c.sent()]))()];
                 }
             });
@@ -454,7 +454,7 @@ var AtApiService = AtApiService_1 = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/token/find/all", null, null, authUser)];
+                    case 0: return [4 /*yield*/, this.request("/token/find/all", null, null, authUser, null)];
                     case 1: return [2 /*return*/, (_a.sent()).map(function (t) { return new Token(t); })];
                 }
             });
@@ -467,7 +467,7 @@ var AtApiService = AtApiService_1 = (function () {
                 switch (_c.label) {
                     case 0:
                         _a = Token.bind;
-                        return [4 /*yield*/, this.request("/token/enable", params, null, authUser)];
+                        return [4 /*yield*/, this.request("/token/enable", params, null, authUser, null)];
                     case 1: return [2 /*return*/, new (_a.apply(Token, [void 0, _c.sent()]))()];
                 }
             });
@@ -480,7 +480,7 @@ var AtApiService = AtApiService_1 = (function () {
                 switch (_c.label) {
                     case 0:
                         _a = Token.bind;
-                        return [4 /*yield*/, this.request("/token/disable", params, null, authUser)];
+                        return [4 /*yield*/, this.request("/token/disable", params, null, authUser, null)];
                     case 1: return [2 /*return*/, new (_a.apply(Token, [void 0, _c.sent()]))()];
                 }
             });
@@ -493,7 +493,7 @@ var AtApiService = AtApiService_1 = (function () {
                 switch (_c.label) {
                     case 0:
                         _a = Token.bind;
-                        return [4 /*yield*/, this.request("/token/update", params, null, authUser)];
+                        return [4 /*yield*/, this.request("/token/update", params, null, authUser, null)];
                     case 1: return [2 /*return*/, new (_a.apply(Token, [void 0, _c.sent()]))()];
                 }
             });
@@ -506,7 +506,7 @@ var AtApiService = AtApiService_1 = (function () {
                 switch (_c.label) {
                     case 0:
                         _a = Token.bind;
-                        return [4 /*yield*/, this.request("/token/create", params, null, authUser)];
+                        return [4 /*yield*/, this.request("/token/create", params, null, authUser, null)];
                     case 1: return [2 /*return*/, new (_a.apply(Token, [void 0, _c.sent()]))()];
                 }
             });
@@ -516,7 +516,7 @@ var AtApiService = AtApiService_1 = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/token/storage/set", params, authToken, null)];
+                    case 0: return [4 /*yield*/, this.request("/token/storage/set", params, authToken, null, null)];
                     case 1: return [2 /*return*/, _a.sent()];
                 }
             });
@@ -526,7 +526,7 @@ var AtApiService = AtApiService_1 = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/token/storage/get", params, authToken, null)];
+                    case 0: return [4 /*yield*/, this.request("/token/storage/get", params, authToken, null, null)];
                     case 1: return [2 /*return*/, _a.sent()];
                 }
             });
@@ -536,7 +536,7 @@ var AtApiService = AtApiService_1 = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/token/storage/delete", params, authToken, null)];
+                    case 0: return [4 /*yield*/, this.request("/token/storage/delete", params, authToken, null, null)];
                     case 1: return [2 /*return*/, _a.sent()];
                 }
             });
@@ -546,7 +546,7 @@ var AtApiService = AtApiService_1 = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/token/storage/list", null, authToken, null)];
+                    case 0: return [4 /*yield*/, this.request("/token/storage/list", null, authToken, null, null)];
                     case 1: return [2 /*return*/, _a.sent()];
                 }
             });
@@ -556,7 +556,7 @@ var AtApiService = AtApiService_1 = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/token/req/create", null, authToken, null)];
+                    case 0: return [4 /*yield*/, this.request("/token/req/create", null, authToken, null, null)];
                     case 1: return [2 /*return*/, _a.sent()];
                 }
             });
@@ -569,7 +569,7 @@ var AtApiService = AtApiService_1 = (function () {
                 switch (_c.label) {
                     case 0:
                         _a = Token.bind;
-                        return [4 /*yield*/, this.request("/token/find/req", params, null, null)];
+                        return [4 /*yield*/, this.request("/token/find/req", params, null, null, null)];
                     case 1: return [2 /*return*/, new (_a.apply(Token, [void 0, _c.sent()]))()];
                 }
             });
@@ -580,20 +580,20 @@ var AtApiService = AtApiService_1 = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/user/find/id", params, null, null)];
+                    case 0: return [4 /*yield*/, this.request("/user/find/id", params, null, null, null)];
                     case 1: return [2 /*return*/, _a.sent()];
                 }
             });
         });
     };
-    AtApiService.prototype.createUser = function (params) {
+    AtApiService.prototype.createUser = function (recaptcha, params) {
         return __awaiter(this, void 0, void 0, function () {
             var _a, _b;
             return __generator(this, function (_c) {
                 switch (_c.label) {
                     case 0:
                         _a = User.bind;
-                        return [4 /*yield*/, this.request("/user/create", params, null, null)];
+                        return [4 /*yield*/, this.request("/user/create", params, null, null, recaptcha)];
                     case 1: return [2 /*return*/, new (_a.apply(User, [void 0, _c.sent()]))()];
                 }
             });
@@ -606,7 +606,7 @@ var AtApiService = AtApiService_1 = (function () {
                 switch (_c.label) {
                     case 0:
                         _a = User.bind;
-                        return [4 /*yield*/, this.request("/user/update", params, null, authUser)];
+                        return [4 /*yield*/, this.request("/user/update", params, null, authUser, null)];
                     case 1: return [2 /*return*/, new (_a.apply(User, [void 0, _c.sent()]))()];
                 }
             });
@@ -620,7 +620,7 @@ var AtApiService = AtApiService_1 = (function () {
                 switch (_c.label) {
                     case 0:
                         _a = Client.bind;
-                        return [4 /*yield*/, this.request("/client/create", params, null, authUser)];
+                        return [4 /*yield*/, this.request("/client/create", params, null, authUser, null)];
                     case 1: return [2 /*return*/, new (_a.apply(Client, [void 0, _c.sent()]))()];
                 }
             });
@@ -633,7 +633,7 @@ var AtApiService = AtApiService_1 = (function () {
                 switch (_c.label) {
                     case 0:
                         _a = Client.bind;
-                        return [4 /*yield*/, this.request("/client/update", params, null, authUser)];
+                        return [4 /*yield*/, this.request("/client/update", params, null, authUser, null)];
                     case 1: return [2 /*return*/, new (_a.apply(Client, [void 0, _c.sent()]))()];
                 }
             });
@@ -646,7 +646,7 @@ var AtApiService = AtApiService_1 = (function () {
                 switch (_c.label) {
                     case 0:
                         _a = Client.bind;
-                        return [4 /*yield*/, this.request("/client/find/one", params, null, authUser)];
+                        return [4 /*yield*/, this.request("/client/find/one", params, null, authUser, null)];
                     case 1: return [2 /*return*/, new (_a.apply(Client, [void 0, _c.sent()]))()];
                 }
             });
@@ -656,7 +656,7 @@ var AtApiService = AtApiService_1 = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/client/find/in", params, null, authUser)];
+                    case 0: return [4 /*yield*/, this.request("/client/find/in", params, null, authUser, null)];
                     case 1: return [2 /*return*/, (_a.sent()).map(function (c) { return new Client(c); })];
                 }
             });
@@ -666,7 +666,7 @@ var AtApiService = AtApiService_1 = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/client/find/all", null, null, authUser)];
+                    case 0: return [4 /*yield*/, this.request("/client/find/all", null, null, authUser, null)];
                     case 1: return [2 /*return*/, (_a.sent()).map(function (c) { return new Client(c); })];
                 }
             });
@@ -676,7 +676,7 @@ var AtApiService = AtApiService_1 = (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.request("/user/auth", null, null, authUser)];
+                    case 0: return [4 /*yield*/, this.request("/user/auth", null, null, authUser, null)];
                     case 1: return [2 /*return*/, _a.sent()];
                 }
             });

@@ -12,7 +12,7 @@ export declare class AtApiService {
     private http;
     static serverURL: string;
     constructor(http: Http);
-    private request<T>(name, params, authToken, authUser);
+    private request<T>(name, params, authToken, authUser, recaptcha);
     createRes(authToken: IAuthToken, params: {
         topic: string;
         name: string;
@@ -173,10 +173,9 @@ export declare class AtApiService {
     findUserID(params: {
         sn: string;
     }): Promise<string>;
-    createUser(params: {
+    createUser(recaptcha: string, params: {
         sn: string;
         pass: string;
-        recaptcha: string;
     }): Promise<User>;
     updateUser(authUser: IAuthUser, params: {
         pass: string;

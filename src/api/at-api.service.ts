@@ -38,13 +38,13 @@ export class AtApiService {
     static serverURL = "https://api.anontown.com";
     constructor(private http: Http) { }
 
-    private async request<T>(name: string, params: any, authToken: IAuthToken | null, authUser: IAuthUser | null): Promise<T> {
+    private async request<T>(name: string, params: any, authToken: IAuthToken | null, authUser: IAuthUser | null, recaptcha: string | null): Promise<T> {
         var url = AtApiService.serverURL + name;
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
 
         let res = await this.http.post(url,
-            JSON.stringify({ authUser, authToken, params }), {
+            JSON.stringify({ authUser, authToken, recaptcha, params }), {
                 headers
             }).toPromise().catch((r: Response) => {
                 throw new AtError(r.status, r.json().message);
@@ -67,6 +67,7 @@ export class AtApiService {
             "/res/create",
             params,
             authToken,
+            null,
             null));
     }
     async findResOne(authToken: IAuthToken | null,
@@ -77,6 +78,7 @@ export class AtApiService {
             "/res/find/one",
             params,
             authToken,
+            null,
             null));
     }
     async findResIn(authToken: IAuthToken | null,
@@ -87,6 +89,7 @@ export class AtApiService {
             "/res/find/in",
             params,
             authToken,
+            null,
             null)).map(r => new Res(r));
     }
     async findRes(authToken: IAuthToken | null,
@@ -101,6 +104,7 @@ export class AtApiService {
             "/res/find",
             params,
             authToken,
+            null,
             null)).map(r => new Res(r));
     }
     async findResNew(authToken: IAuthToken | null,
@@ -112,6 +116,7 @@ export class AtApiService {
             "/res/find/new",
             params,
             authToken,
+            null,
             null)).map(r => new Res(r));
     }
     async findResHash(authToken: IAuthToken | null,
@@ -123,6 +128,7 @@ export class AtApiService {
             "/res/find/hash",
             params,
             authToken,
+            null,
             null)).map(r => new Res(r));
     }
     async findResReply(authToken: IAuthToken | null,
@@ -134,6 +140,7 @@ export class AtApiService {
             "/res/find/reply",
             params,
             authToken,
+            null,
             null)).map(r => new Res(r));
     }
     async findResNotice(authToken: IAuthToken,
@@ -147,6 +154,7 @@ export class AtApiService {
             "/res/find/notice",
             params,
             authToken,
+            null,
             null)).map(r => new Res(r));
     }
     async findResNoticeNew(authToken: IAuthToken,
@@ -157,6 +165,7 @@ export class AtApiService {
             "/res/find/notice/new",
             params,
             authToken,
+            null,
             null)).map(r => new Res(r));
     }
     async uvRes(authToken: IAuthToken,
@@ -167,6 +176,7 @@ export class AtApiService {
             "/res/uv",
             params,
             authToken,
+            null,
             null));
     }
     async dvRes(authToken: IAuthToken,
@@ -177,6 +187,7 @@ export class AtApiService {
             "/res/dv",
             params,
             authToken,
+            null,
             null));
     }
     async cvRes(authToken: IAuthToken,
@@ -187,6 +198,7 @@ export class AtApiService {
             "/res/cv",
             params,
             authToken,
+            null,
             null));
     }
     async delRes(authToken: IAuthToken,
@@ -197,6 +209,7 @@ export class AtApiService {
             "/res/del",
             params,
             authToken,
+            null,
             null));
     }
 
@@ -212,6 +225,7 @@ export class AtApiService {
             "/topic/create",
             params,
             authToken,
+            null,
             null));
     }
     async findTopicOne(
@@ -221,6 +235,7 @@ export class AtApiService {
         return new Topic(await this.request<ITopicAPI>(
             "/topic/find/one",
             params,
+            null,
             null,
             null));
     }
@@ -232,12 +247,14 @@ export class AtApiService {
             "/topic/find/in",
             params,
             null,
+            null,
             null)).map(t => new Topic(t));
     }
     async findTopicTags(params: { limit: number }): Promise<{ name: string, count: number }[]> {
         return (await this.request<{ name: string, count: number }[]>(
             "/topic/find/tags",
             params,
+            null,
             null,
             null));
     }
@@ -253,6 +270,7 @@ export class AtApiService {
             "/topic/find",
             params,
             null,
+            null,
             null)).map(t => new Topic(t));
     }
     async updateTopic(authToken: IAuthToken,
@@ -266,6 +284,7 @@ export class AtApiService {
             "/topic/update",
             params,
             authToken,
+            null,
             null));
     }
 
@@ -277,6 +296,7 @@ export class AtApiService {
             "/history/find/one",
             params,
             null,
+            null,
             null));
     }
 
@@ -287,6 +307,7 @@ export class AtApiService {
             "/history/find/in",
             params,
             null,
+            null,
             null)).map(h => new History(h));
     }
 
@@ -296,6 +317,7 @@ export class AtApiService {
         return (await this.request<IHistoryAPI[]>(
             "/history/find/all",
             params,
+            null,
             null,
             null)).map(h => new History(h));
     }
@@ -308,6 +330,7 @@ export class AtApiService {
             "/msg/find/one",
             params,
             authToken,
+            null,
             null));
     }
     async findMsgIn(authToken: IAuthToken,
@@ -318,6 +341,7 @@ export class AtApiService {
             "/msg/find/in",
             params,
             authToken,
+            null,
             null)).map(m => new Msg(m));
     }
     async findMsg(authToken: IAuthToken,
@@ -331,6 +355,7 @@ export class AtApiService {
             "/msg/find",
             params,
             authToken,
+            null,
             null)).map(m => new Msg(m));
     }
     async findMsgNew(authToken: IAuthToken,
@@ -341,6 +366,7 @@ export class AtApiService {
             "/msg/find/new",
             params,
             authToken,
+            null,
             null)).map(m => new Msg(m));
     }
     //[profile]
@@ -354,6 +380,7 @@ export class AtApiService {
             "/profile/create",
             params,
             authToken,
+            null,
             null));
     }
     async findProfileOne(authToken: IAuthToken | null,
@@ -364,6 +391,7 @@ export class AtApiService {
             "/profile/find/one",
             params,
             authToken,
+            null,
             null));
     }
     async findProfileIn(authToken: IAuthToken | null,
@@ -374,6 +402,7 @@ export class AtApiService {
             "/profile/find/in",
             params,
             authToken,
+            null,
             null)).map(p => new Profile(p));
     }
     async findProfileAll(authToken: IAuthToken): Promise<Profile[]> {
@@ -381,6 +410,7 @@ export class AtApiService {
             "/profile/find/all",
             null,
             authToken,
+            null,
             null)).map(p => new Profile(p));
     }
     async updateProfile(authToken: IAuthToken,
@@ -394,6 +424,7 @@ export class AtApiService {
             "/profile/update",
             params,
             authToken,
+            null,
             null));
     }
     //[token]
@@ -402,6 +433,7 @@ export class AtApiService {
             "/token/find/one",
             null,
             authToken,
+            null,
             null));
     }
     async findTokenAll(authUser: IAuthUser): Promise<Token[]> {
@@ -409,7 +441,8 @@ export class AtApiService {
             "/token/find/all",
             null,
             null,
-            authUser)).map(t => new Token(t));
+            authUser,
+            null)).map(t => new Token(t));
     }
     async enableToken(authUser: IAuthUser,
         params: {
@@ -419,7 +452,8 @@ export class AtApiService {
             "/token/enable",
             params,
             null,
-            authUser));
+            authUser,
+            null));
     }
     async disableToken(authUser: IAuthUser,
         params: {
@@ -429,7 +463,8 @@ export class AtApiService {
             "/token/disable",
             params,
             null,
-            authUser));
+            authUser,
+            null));
     }
     async updateToken(authUser: IAuthUser,
         params: {
@@ -439,7 +474,8 @@ export class AtApiService {
             "/token/update",
             params,
             null,
-            authUser));
+            authUser,
+            null));
     }
     async createToken(authUser: IAuthUser,
         params: {
@@ -449,7 +485,8 @@ export class AtApiService {
             "/token/create",
             params,
             null,
-            authUser));
+            authUser,
+            null));
     }
     async setTokenStorage(authToken: IAuthToken,
         params: {
@@ -460,6 +497,7 @@ export class AtApiService {
             "/token/storage/set",
             params,
             authToken,
+            null,
             null);
     }
     async getTokenStorage(authToken: IAuthToken,
@@ -470,6 +508,7 @@ export class AtApiService {
             "/token/storage/get",
             params,
             authToken,
+            null,
             null);
     }
     async delTokenStorage(authToken: IAuthToken,
@@ -480,6 +519,7 @@ export class AtApiService {
             "/token/storage/delete",
             params,
             authToken,
+            null,
             null);
     }
 
@@ -488,6 +528,7 @@ export class AtApiService {
             "/token/storage/list",
             null,
             authToken,
+            null,
             null);
     }
     async createTokenReq(authToken: IAuthToken): Promise<ITokenReqAPI> {
@@ -495,6 +536,7 @@ export class AtApiService {
             "/token/req/create",
             null,
             authToken,
+            null,
             null);
     }
     async findTokenReq(
@@ -505,6 +547,7 @@ export class AtApiService {
         return new Token(await this.request<ITokenAPI>(
             "/token/find/req",
             params,
+            null,
             null,
             null));
     }
@@ -517,19 +560,20 @@ export class AtApiService {
             "/user/find/id",
             params,
             null,
+            null,
             null);
     }
-    async createUser(
+    async createUser(recaptcha: string,
         params: {
             sn: string,
-            pass: string,
-            recaptcha: string
+            pass: string
         }): Promise<User> {
         return new User(await this.request<IUserAPI>(
             "/user/create",
             params,
             null,
-            null));
+            null,
+            recaptcha));
     }
     async updateUser(authUser: IAuthUser,
         params: {
@@ -540,7 +584,8 @@ export class AtApiService {
             "/user/update",
             params,
             null,
-            authUser));
+            authUser,
+            null));
     }
     //[client]
     async createClient(authUser: IAuthUser,
@@ -552,7 +597,8 @@ export class AtApiService {
             "/client/create",
             params,
             null,
-            authUser));
+            authUser,
+            null));
     }
     async updateClient(authUser: IAuthUser,
         params: {
@@ -564,7 +610,8 @@ export class AtApiService {
             "/client/update",
             params,
             null,
-            authUser));
+            authUser,
+            null));
     }
     async findClientOne(authUser: IAuthUser | null,
         params: {
@@ -574,7 +621,8 @@ export class AtApiService {
             "/client/find/one",
             params,
             null,
-            authUser));
+            authUser,
+            null));
     }
     async findClientIn(authUser: IAuthUser | null,
         params: {
@@ -584,14 +632,16 @@ export class AtApiService {
             "/client/find/in",
             params,
             null,
-            authUser)).map(c => new Client(c));
+            authUser,
+            null)).map(c => new Client(c));
     }
     async findClientAll(authUser: IAuthUser): Promise<Client[]> {
         return (await this.request<IClientAPI[]>(
             "/client/find/all",
             null,
             null,
-            authUser)).map(c => new Client(c));
+            authUser,
+            null)).map(c => new Client(c));
     }
 
     async authUser(authUser: IAuthUser): Promise<void> {
@@ -599,6 +649,7 @@ export class AtApiService {
             "/user/auth",
             null,
             null,
-            authUser);
+            authUser,
+            null);
     }
 }
