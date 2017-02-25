@@ -77,7 +77,7 @@ var AtApiService = AtApiService_1 = (function () {
                         return [4 /*yield*/, this.http.post(url, JSON.stringify({ authUser: authUser, authToken: authToken, recaptcha: recaptcha, params: params }), {
                                 headers: headers
                             }).toPromise().catch(function (r) {
-                                var data = r.json().message;
+                                var data = r.json();
                                 throw new AtError(r.status, data.type, data.errors);
                             })];
                     case 1:

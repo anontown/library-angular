@@ -35,7 +35,7 @@ export class IAtError {
 export class AtError {
     constructor(public statusCode: number,
         public type: string,
-        public errors: AtError[]) {
+        public errors: IAtError[]) {
     }
 }
 
@@ -53,7 +53,7 @@ export class AtApiService {
             JSON.stringify({ authUser, authToken, recaptcha, params }), {
                 headers
             }).toPromise().catch((r: Response) => {
-                let data = r.json().message;
+                let data = r.json();
                 throw new AtError(r.status, data.type, data.errors);
             });
 

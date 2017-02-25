@@ -10,8 +10,8 @@ export declare class IAtError {
 export declare class AtError {
     statusCode: number;
     type: string;
-    errors: AtError[];
-    constructor(statusCode: number, type: string, errors: AtError[]);
+    errors: IAtError[];
+    constructor(statusCode: number, type: string, errors: IAtError[]);
 }
 export declare class AtApiService {
     private http;
