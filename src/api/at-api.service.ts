@@ -28,8 +28,9 @@ import 'rxjs/add/operator/toPromise';
 
 
 export class AtError {
-    constructor(public status: number, public message: string) {
-
+    constructor(public statusCode: number,
+        public type: string,
+        public errors: { message: string, data: any }[]) {
     }
 }
 
@@ -47,7 +48,8 @@ export class AtApiService {
             JSON.stringify({ authUser, authToken, recaptcha, params }), {
                 headers
             }).toPromise().catch((r: Response) => {
-                throw new AtError(r.status, r.json().message);
+                let data = r.json().message;
+                throw new AtError(r.status, data.type,data.errors);
             });
 
         return res.json();

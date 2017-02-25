@@ -47,9 +47,10 @@ import { Http, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 var AtError = (function () {
-    function AtError(status, message) {
-        this.status = status;
-        this.message = message;
+    function AtError(statusCode, type, errors) {
+        this.statusCode = statusCode;
+        this.type = type;
+        this.errors = errors;
     }
     return AtError;
 }());
@@ -70,7 +71,8 @@ var AtApiService = AtApiService_1 = (function () {
                         return [4 /*yield*/, this.http.post(url, JSON.stringify({ authUser: authUser, authToken: authToken, recaptcha: recaptcha, params: params }), {
                                 headers: headers
                             }).toPromise().catch(function (r) {
-                                throw new AtError(r.status, r.json().message);
+                                var data = r.json().message;
+                                throw new AtError(r.status, data.type, data.errors);
                             })];
                     case 1:
                         res = _a.sent();

@@ -4,9 +4,16 @@ import { IAuthUser, IAuthToken } from './auth';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 export declare class AtError {
-    status: number;
-    message: string;
-    constructor(status: number, message: string);
+    statusCode: number;
+    type: string;
+    errors: {
+        message: string;
+        data: any;
+    }[];
+    constructor(statusCode: number, type: string, errors: {
+        message: string;
+        data: any;
+    }[]);
 }
 export declare class AtApiService {
     private http;
