@@ -46,6 +46,12 @@ import { Client, Token, Topic, Res, Msg, Profile, User, History } from './object
 import { Http, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
+var IAtError = (function () {
+    function IAtError() {
+    }
+    return IAtError;
+}());
+export { IAtError };
 var AtError = (function () {
     function AtError(statusCode, type, errors) {
         this.statusCode = statusCode;

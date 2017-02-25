@@ -3,17 +3,15 @@ import { ITokenReqAPI, TopicType } from './api-object';
 import { IAuthUser, IAuthToken } from './auth';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+export declare class IAtError {
+    message: string;
+    data: any;
+}
 export declare class AtError {
     statusCode: number;
     type: string;
-    errors: {
-        message: string;
-        data: any;
-    }[];
-    constructor(statusCode: number, type: string, errors: {
-        message: string;
-        data: any;
-    }[]);
+    errors: AtError[];
+    constructor(statusCode: number, type: string, errors: AtError[]);
 }
 export declare class AtApiService {
     private http;

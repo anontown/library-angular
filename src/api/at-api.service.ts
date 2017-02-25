@@ -27,10 +27,15 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 
 
+export class IAtError {
+    message: string;
+    data: any;
+}
+
 export class AtError {
     constructor(public statusCode: number,
         public type: string,
-        public errors: { message: string, data: any }[]) {
+        public errors: AtError[]) {
     }
 }
 
@@ -49,7 +54,7 @@ export class AtApiService {
                 headers
             }).toPromise().catch((r: Response) => {
                 let data = r.json().message;
-                throw new AtError(r.status, data.type,data.errors);
+                throw new AtError(r.status, data.type, data.errors);
             });
 
         return res.json();
