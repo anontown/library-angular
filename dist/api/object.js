@@ -293,83 +293,233 @@ var Profile = (function () {
     return Profile;
 }());
 export { Profile };
-var Topic = (function () {
-    function Topic(obj) {
+var TopicNormal = (function () {
+    function TopicNormal(obj) {
         this.obj = obj;
     }
-    Object.defineProperty(Topic.prototype, "id", {
+    Object.defineProperty(TopicNormal.prototype, "id", {
         get: function () {
             return this.obj.id;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(Topic.prototype, "title", {
+    Object.defineProperty(TopicNormal.prototype, "title", {
         get: function () {
             return this.obj.title;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(Topic.prototype, "tags", {
+    Object.defineProperty(TopicNormal.prototype, "tags", {
         get: function () {
             return this.obj.tags;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(Topic.prototype, "text", {
+    Object.defineProperty(TopicNormal.prototype, "text", {
         get: function () {
             return this.obj.text;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(Topic.prototype, "mdtext", {
+    Object.defineProperty(TopicNormal.prototype, "mdtext", {
         get: function () {
             return this.obj.mdtext;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(Topic.prototype, "update", {
+    Object.defineProperty(TopicNormal.prototype, "update", {
         get: function () {
             return new Date(this.obj.update);
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(Topic.prototype, "date", {
+    Object.defineProperty(TopicNormal.prototype, "date", {
         get: function () {
             return new Date(this.obj.date);
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(Topic.prototype, "resCount", {
+    Object.defineProperty(TopicNormal.prototype, "resCount", {
         get: function () {
             return this.obj.resCount;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(Topic.prototype, "type", {
+    Object.defineProperty(TopicNormal.prototype, "type", {
         get: function () {
             return this.obj.type;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(Topic.prototype, "active", {
+    Object.defineProperty(TopicNormal.prototype, "active", {
         get: function () {
             return this.obj.active;
         },
         enumerable: true,
         configurable: true
     });
-    return Topic;
+    return TopicNormal;
 }());
-export { Topic };
+export { TopicNormal };
+var TopicOne = (function () {
+    function TopicOne(obj) {
+        this.obj = obj;
+    }
+    Object.defineProperty(TopicOne.prototype, "id", {
+        get: function () {
+            return this.obj.id;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TopicOne.prototype, "title", {
+        get: function () {
+            return this.obj.title;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TopicOne.prototype, "tags", {
+        get: function () {
+            return this.obj.tags;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TopicOne.prototype, "text", {
+        get: function () {
+            return this.obj.text;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TopicOne.prototype, "mdtext", {
+        get: function () {
+            return this.obj.mdtext;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TopicOne.prototype, "update", {
+        get: function () {
+            return new Date(this.obj.update);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TopicOne.prototype, "date", {
+        get: function () {
+            return new Date(this.obj.date);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TopicOne.prototype, "resCount", {
+        get: function () {
+            return this.obj.resCount;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TopicOne.prototype, "type", {
+        get: function () {
+            return this.obj.type;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TopicOne.prototype, "active", {
+        get: function () {
+            return this.obj.active;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return TopicOne;
+}());
+export { TopicOne };
+var TopicFork = (function () {
+    function TopicFork(obj) {
+        this.obj = obj;
+    }
+    Object.defineProperty(TopicFork.prototype, "id", {
+        get: function () {
+            return this.obj.id;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TopicFork.prototype, "title", {
+        get: function () {
+            return this.obj.title;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TopicFork.prototype, "parent", {
+        get: function () {
+            return this.obj.parent;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TopicFork.prototype, "update", {
+        get: function () {
+            return new Date(this.obj.update);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TopicFork.prototype, "date", {
+        get: function () {
+            return new Date(this.obj.date);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TopicFork.prototype, "resCount", {
+        get: function () {
+            return this.obj.resCount;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TopicFork.prototype, "type", {
+        get: function () {
+            return this.obj.type;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TopicFork.prototype, "active", {
+        get: function () {
+            return this.obj.active;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return TopicFork;
+}());
+export { TopicFork };
+export function newTopic(t) {
+    switch (t.type) {
+        case 'normal':
+            return new TopicNormal(t);
+        case 'one':
+            return new TopicOne(t);
+        case 'fork':
+            return new TopicFork(t);
+    }
+}
 var Msg = (function () {
     function Msg(obj) {
         this.obj = obj;

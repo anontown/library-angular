@@ -1,5 +1,5 @@
-import { Client, Token, Topic, Res, Msg, Profile, User, History } from './object';
-import { ITokenReqAPI, TopicType } from './api-object';
+import { Client, Token, Topic, Res, Msg, Profile, User, History, TopicNormal, TopicOne, TopicFork } from './object';
+import { ITokenReqAPI } from './api-object';
 import { IAuthUser, IAuthToken } from './auth';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
@@ -72,12 +72,20 @@ export declare class AtApiService {
     delRes(authToken: IAuthToken, params: {
         id: string;
     }): Promise<Res>;
-    createTopic(authToken: IAuthToken, params: {
+    createTopicNormal(authToken: IAuthToken, params: {
         title: string;
         tags: string[];
         text: string;
-        type: TopicType;
-    }): Promise<Topic>;
+    }): Promise<TopicNormal>;
+    createTopicOne(authToken: IAuthToken, params: {
+        title: string;
+        tags: string[];
+        text: string;
+    }): Promise<TopicOne>;
+    createTopicFork(authToken: IAuthToken, params: {
+        title: string;
+        parent: string;
+    }): Promise<TopicFork>;
     findTopicOne(params: {
         id: string;
     }): Promise<Topic>;
@@ -97,12 +105,18 @@ export declare class AtApiService {
         limit: number;
         activeOnly: boolean;
     }): Promise<Topic[]>;
+    findTopicFork(params: {
+        parent: string;
+        skip: number;
+        limit: number;
+        activeOnly: boolean;
+    }): Promise<TopicFork[]>;
     updateTopic(authToken: IAuthToken, params: {
         id: string;
         title: string;
         tags: string[];
         text: string;
-    }): Promise<Topic>;
+    }): Promise<TopicNormal>;
     findHistoryOne(params: {
         id: string;
     }): Promise<History>;

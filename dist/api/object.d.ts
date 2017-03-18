@@ -1,4 +1,4 @@
-import { IProfileAPI, IResAPI, ITokenAPI, ITopicAPI, IUserAPI, IMsgAPI, IHistoryAPI, IClientAPI, ResDeleteFlag, TopicType, ResVoteFlag } from './api-object';
+import { IProfileAPI, IResAPI, ITokenAPI, ITopicAPI, IUserAPI, IMsgAPI, IHistoryAPI, IClientAPI, ResDeleteFlag, ResVoteFlag, ITopicForkAPI, ITopicOneAPI, ITopicNormalAPI } from './api-object';
 export declare class Client {
     private obj;
     constructor(obj: IClientAPI);
@@ -53,9 +53,9 @@ export declare class Profile {
     readonly date: Date;
     readonly update: Date;
 }
-export declare class Topic {
+export declare class TopicNormal {
     private obj;
-    constructor(obj: ITopicAPI);
+    constructor(obj: ITopicNormalAPI);
     readonly id: string;
     readonly title: string;
     readonly tags: string[];
@@ -64,9 +64,37 @@ export declare class Topic {
     readonly update: Date;
     readonly date: Date;
     readonly resCount: number;
-    readonly type: TopicType;
+    readonly type: "normal";
     readonly active: boolean;
 }
+export declare class TopicOne {
+    private obj;
+    constructor(obj: ITopicOneAPI);
+    readonly id: string;
+    readonly title: string;
+    readonly tags: string[];
+    readonly text: string;
+    readonly mdtext: string;
+    readonly update: Date;
+    readonly date: Date;
+    readonly resCount: number;
+    readonly type: "one";
+    readonly active: boolean;
+}
+export declare class TopicFork {
+    private obj;
+    constructor(obj: ITopicForkAPI);
+    readonly id: string;
+    readonly title: string;
+    readonly parent: string;
+    readonly update: Date;
+    readonly date: Date;
+    readonly resCount: number;
+    readonly type: "fork";
+    readonly active: boolean;
+}
+export declare type Topic = TopicOne | TopicNormal | TopicFork;
+export declare function newTopic(t: ITopicAPI): Topic;
 export declare class Msg {
     private obj;
     constructor(obj: IMsgAPI);

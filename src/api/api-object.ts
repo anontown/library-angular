@@ -48,7 +48,7 @@ export interface IProfileAPI {
     update: string,
     sn: string
 }
-export interface ITopicAPI {
+export interface ITopicNormalAPI {
     id: string,
     title: string,
     tags: string[],
@@ -57,11 +57,36 @@ export interface ITopicAPI {
     update: string,
     date: string,
     resCount: number,
-    type: TopicType,
+    type: 'normal',
     active: boolean
 }
 
-export type TopicType = "normal"| "one";
+export interface ITopicOneAPI {
+    id: string,
+    title: string,
+    tags: string[],
+    text: string,
+    mdtext: string,
+    update: string,
+    date: string,
+    resCount: number,
+    type: 'one',
+    active: boolean
+}
+
+export interface ITopicForkAPI {
+    id: string,
+    title: string,
+    update: string,
+    date: string,
+    resCount: number,
+    type: 'fork',
+    active: boolean,
+    parent: string
+}
+
+export type TopicType = "normal" | "one" | "fork";
+export type ITopicAPI = ITopicOneAPI | ITopicNormalAPI | ITopicForkAPI;
 export interface IMsgAPI {
     id: string,
     receiver: string | null,

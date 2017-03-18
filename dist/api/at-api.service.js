@@ -42,7 +42,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { Client, Token, Topic, Res, Msg, Profile, User, History } from './object';
+import { Client, Token, Res, Msg, Profile, User, History, newTopic, TopicNormal, TopicOne, TopicFork } from './object';
 import { Http, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
@@ -237,15 +237,41 @@ var AtApiService = AtApiService_1 = (function () {
         });
     };
     //[topic]
-    AtApiService.prototype.createTopic = function (authToken, params) {
+    AtApiService.prototype.createTopicNormal = function (authToken, params) {
         return __awaiter(this, void 0, void 0, function () {
             var _a, _b;
             return __generator(this, function (_c) {
                 switch (_c.label) {
                     case 0:
-                        _a = Topic.bind;
-                        return [4 /*yield*/, this.request("/topic/create", params, authToken, null, null)];
-                    case 1: return [2 /*return*/, new (_a.apply(Topic, [void 0, _c.sent()]))()];
+                        _a = TopicNormal.bind;
+                        return [4 /*yield*/, this.request("/topic/create/normal", params, authToken, null, null)];
+                    case 1: return [2 /*return*/, new (_a.apply(TopicNormal, [void 0, _c.sent()]))()];
+                }
+            });
+        });
+    };
+    AtApiService.prototype.createTopicOne = function (authToken, params) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, _b;
+            return __generator(this, function (_c) {
+                switch (_c.label) {
+                    case 0:
+                        _a = TopicOne.bind;
+                        return [4 /*yield*/, this.request("/topic/create/one", params, authToken, null, null)];
+                    case 1: return [2 /*return*/, new (_a.apply(TopicOne, [void 0, _c.sent()]))()];
+                }
+            });
+        });
+    };
+    AtApiService.prototype.createTopicFork = function (authToken, params) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, _b;
+            return __generator(this, function (_c) {
+                switch (_c.label) {
+                    case 0:
+                        _a = TopicFork.bind;
+                        return [4 /*yield*/, this.request("/topic/create/fork", params, authToken, null, null)];
+                    case 1: return [2 /*return*/, new (_a.apply(TopicFork, [void 0, _c.sent()]))()];
                 }
             });
         });
@@ -256,9 +282,9 @@ var AtApiService = AtApiService_1 = (function () {
             return __generator(this, function (_c) {
                 switch (_c.label) {
                     case 0:
-                        _a = Topic.bind;
+                        _a = newTopic;
                         return [4 /*yield*/, this.request("/topic/find/one", params, null, null, null)];
-                    case 1: return [2 /*return*/, new (_a.apply(Topic, [void 0, _c.sent()]))()];
+                    case 1: return [2 /*return*/, _a.apply(void 0, [_c.sent()])];
                 }
             });
         });
@@ -268,7 +294,7 @@ var AtApiService = AtApiService_1 = (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.request("/topic/find/in", params, null, null, null)];
-                    case 1: return [2 /*return*/, (_a.sent()).map(function (t) { return new Topic(t); })];
+                    case 1: return [2 /*return*/, (_a.sent()).map(function (t) { return newTopic(t); })];
                 }
             });
         });
@@ -288,7 +314,17 @@ var AtApiService = AtApiService_1 = (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.request("/topic/find", params, null, null, null)];
-                    case 1: return [2 /*return*/, (_a.sent()).map(function (t) { return new Topic(t); })];
+                    case 1: return [2 /*return*/, (_a.sent()).map(function (t) { return newTopic(t); })];
+                }
+            });
+        });
+    };
+    AtApiService.prototype.findTopicFork = function (params) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.request("/topic/find/fork", params, null, null, null)];
+                    case 1: return [2 /*return*/, (_a.sent()).map(function (t) { return new TopicFork(t); })];
                 }
             });
         });
@@ -299,9 +335,9 @@ var AtApiService = AtApiService_1 = (function () {
             return __generator(this, function (_c) {
                 switch (_c.label) {
                     case 0:
-                        _a = Topic.bind;
+                        _a = TopicNormal.bind;
                         return [4 /*yield*/, this.request("/topic/update", params, authToken, null, null)];
-                    case 1: return [2 /*return*/, new (_a.apply(Topic, [void 0, _c.sent()]))()];
+                    case 1: return [2 /*return*/, new (_a.apply(TopicNormal, [void 0, _c.sent()]))()];
                 }
             });
         });

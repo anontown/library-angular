@@ -8,8 +8,10 @@ import {
     IHistoryAPI,
     IClientAPI,
     ResDeleteFlag,
-    TopicType,
-    ResVoteFlag
+    ResVoteFlag,
+    ITopicForkAPI,
+    ITopicOneAPI,
+    ITopicNormalAPI
 } from './api-object';
 
 export class Client {
@@ -180,50 +182,146 @@ export class Profile {
         return new Date(this.obj.update);
     }
 }
-export class Topic {
-    constructor(private obj: ITopicAPI) {
+
+export class TopicNormal {
+    constructor(private obj: ITopicNormalAPI) {
     }
 
-    get id(): string {
+    get id() {
         return this.obj.id;
     }
 
-    get title(): string {
+    get title() {
         return this.obj.title;
     }
 
-    get tags(): string[] {
+    get tags() {
         return this.obj.tags;
     }
 
-    get text(): string {
+    get text() {
         return this.obj.text;
     }
 
-    get mdtext(): string {
+    get mdtext() {
         return this.obj.mdtext;
     }
 
-    get update(): Date {
+    get update() {
         return new Date(this.obj.update);
     }
 
-    get date(): Date {
+    get date() {
         return new Date(this.obj.date);
     }
 
-    get resCount(): number {
+    get resCount() {
         return this.obj.resCount;
     }
 
-    get type(): TopicType {
+    get type() {
         return this.obj.type;
     }
 
-    get active(): boolean {
+    get active() {
         return this.obj.active;
     }
 }
+
+export class TopicOne {
+    constructor(private obj: ITopicOneAPI) {
+    }
+
+    get id() {
+        return this.obj.id;
+    }
+
+    get title() {
+        return this.obj.title;
+    }
+
+    get tags() {
+        return this.obj.tags;
+    }
+
+    get text() {
+        return this.obj.text;
+    }
+
+    get mdtext() {
+        return this.obj.mdtext;
+    }
+
+    get update() {
+        return new Date(this.obj.update);
+    }
+
+    get date() {
+        return new Date(this.obj.date);
+    }
+
+    get resCount() {
+        return this.obj.resCount;
+    }
+
+    get type() {
+        return this.obj.type;
+    }
+
+    get active() {
+        return this.obj.active;
+    }
+}
+
+export class TopicFork {
+    constructor(private obj: ITopicForkAPI) {
+    }
+
+    get id() {
+        return this.obj.id;
+    }
+
+    get title() {
+        return this.obj.title;
+    }
+
+    get parent() {
+        return this.obj.parent;
+    }
+
+    get update() {
+        return new Date(this.obj.update);
+    }
+
+    get date() {
+        return new Date(this.obj.date);
+    }
+
+    get resCount() {
+        return this.obj.resCount;
+    }
+
+    get type() {
+        return this.obj.type;
+    }
+
+    get active() {
+        return this.obj.active;
+    }
+}
+
+export type Topic = TopicOne | TopicNormal | TopicFork;
+export function newTopic(t: ITopicAPI): Topic {
+    switch (t.type) {
+        case 'normal':
+            return new TopicNormal(t);
+        case 'one':
+            return new TopicOne(t);
+        case 'fork':
+            return new TopicFork(t);
+    }
+}
+
 export class Msg {
     constructor(private obj: IMsgAPI) {
     }

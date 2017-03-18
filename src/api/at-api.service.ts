@@ -6,20 +6,26 @@ import {
     Msg,
     Profile,
     User,
-    History
+    History,
+    newTopic,
+    TopicNormal,
+    TopicOne,
+    TopicFork
 } from './object';
 
 import {
     ITokenReqAPI,
     IResAPI,
+    ITopicNormalAPI,
+    ITopicForkAPI,
+    ITopicOneAPI,
     ITopicAPI,
     ITokenAPI,
     IMsgAPI,
     IUserAPI,
     IClientAPI,
     IHistoryAPI,
-    IProfileAPI,
-    TopicType
+    IProfileAPI
 } from './api-object';
 import { IAuthUser, IAuthToken } from './auth';
 import { Http, Headers, Response } from '@angular/http';
@@ -221,25 +227,52 @@ export class AtApiService {
     }
 
     //[topic]
-    async createTopic(authToken: IAuthToken,
+    async createTopicNormal(authToken: IAuthToken,
         params: {
             title: string,
             tags: string[],
-            text: string,
-            type: TopicType
-        }): Promise<Topic> {
-        return new Topic(await this.request<ITopicAPI>(
-            "/topic/create",
+            text: string
+        }): Promise<TopicNormal> {
+        return new TopicNormal(await this.request<ITopicNormalAPI>(
+            "/topic/create/normal",
             params,
             authToken,
             null,
             null));
     }
+
+    async createTopicOne(authToken: IAuthToken,
+        params: {
+            title: string,
+            tags: string[],
+            text: string
+        }): Promise<TopicOne> {
+        return new TopicOne(await this.request<ITopicOneAPI>(
+            "/topic/create/one",
+            params,
+            authToken,
+            null,
+            null));
+    }
+
+    async createTopicFork(authToken: IAuthToken,
+        params: {
+            title: string,
+            parent:string
+        }): Promise<TopicFork> {
+        return new TopicFork(await this.request<ITopicForkAPI>(
+            "/topic/create/fork",
+            params,
+            authToken,
+            null,
+            null));
+    }
+
     async findTopicOne(
         params: {
             id: string
         }): Promise<Topic> {
-        return new Topic(await this.request<ITopicAPI>(
+        return newTopic(await this.request<ITopicAPI>(
             "/topic/find/one",
             params,
             null,
@@ -255,7 +288,7 @@ export class AtApiService {
             params,
             null,
             null,
-            null)).map(t => new Topic(t));
+            null)).map(t => newTopic(t));
     }
     async findTopicTags(params: { limit: number }): Promise<{ name: string, count: number }[]> {
         return (await this.request<{ name: string, count: number }[]>(
@@ -278,16 +311,32 @@ export class AtApiService {
             params,
             null,
             null,
-            null)).map(t => new Topic(t));
+            null)).map(t => newTopic(t));
     }
+
+    async findTopicFork(
+        params: {
+            parent: string,
+            skip: number,
+            limit: number,
+            activeOnly: boolean
+        }): Promise<TopicFork[]> {
+        return (await this.request<ITopicForkAPI[]>(
+            "/topic/find/fork",
+            params,
+            null,
+            null,
+            null)).map(t => new TopicFork(t));
+    }
+
     async updateTopic(authToken: IAuthToken,
         params: {
             id: string,
             title: string,
             tags: string[],
             text: string
-        }): Promise<Topic> {
-        return new Topic(await this.request<ITopicAPI>(
+        }): Promise<TopicNormal> {
+        return new TopicNormal(await this.request<ITopicNormalAPI>(
             "/topic/update",
             params,
             authToken,
