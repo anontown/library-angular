@@ -1,12 +1,3 @@
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -61,7 +52,7 @@ var AtError = (function () {
     return AtError;
 }());
 export { AtError };
-var AtApiService = AtApiService_1 = (function () {
+var AtApiService = (function () {
     function AtApiService(http) {
         this.http = http;
     }
@@ -71,7 +62,7 @@ var AtApiService = AtApiService_1 = (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        url = AtApiService_1.serverURL + name;
+                        url = AtApiService.serverURL + name;
                         headers = new Headers();
                         headers.append('Content-Type', 'application/json');
                         return [4 /*yield*/, this.http.post(url, JSON.stringify({ authUser: authUser, authToken: authToken, recaptcha: recaptcha, params: params }), {
@@ -728,10 +719,13 @@ var AtApiService = AtApiService_1 = (function () {
     };
     return AtApiService;
 }());
-AtApiService.serverURL = "https://api.anontown.com";
-AtApiService = AtApiService_1 = __decorate([
-    Injectable(),
-    __metadata("design:paramtypes", [Http])
-], AtApiService);
 export { AtApiService };
-var AtApiService_1;
+AtApiService.serverURL = "https://api.anontown.com";
+AtApiService.decorators = [
+    { type: Injectable },
+];
+/** @nocollapse */
+AtApiService.ctorParameters = function () { return [
+    { type: Http, },
+]; };
+//# sourceMappingURL=at-api.service.js.map

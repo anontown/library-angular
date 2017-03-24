@@ -1,27 +1,20 @@
 {
     "compilerOptions": {
-        //"baseUrl": "./node_modules",
-        "declaration": false,
+        "declaration": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "lib": [
             "es6",
             "dom"
         ],
-        //"mapRoot": "./dist/",
         "module": "es6",
         "moduleResolution": "node",
-        "outDir": "./dist/",
-        "sourceMap": false,
+        "outDir": "dist",
+        "sourceMap": true,
         "target": "es5",
         "typeRoots": [
             "./node_modules/@types"
         ],
-        /*"paths": {
-            "anontown": [
-                "../src/index"
-            ]
-        },*/
         "skipLibCheck": true,
         "strictNullChecks": true,
         "noImplicitAny": true,
@@ -32,5 +25,11 @@
         "noUnusedLocals": true,
         "noFallthroughCasesInSwitch": true,
         "forceConsistentCasingInFileNames": true
+    },
+    "include": [
+        "src/index.ts"
+    ],
+    "angularCompilerOptions": {
+        "genDir": "aot"
     }
 }

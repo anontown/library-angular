@@ -1,21 +1,24 @@
 {
   "name": "anontown",
-  "version": "0.0.13",
+  "version": "0.1.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build":"ngc"
+  },
   "dependencies": {
-    "@angular/common": "^2.4.0",
-    "@angular/compiler": "^2.4.0",
-    "@angular/core": "^2.4.0",
-    "@angular/http": "^2.4.0",
-    "@angular/platform-browser": "^2.4.0",
-    "@angular/platform-browser-dynamic": "^2.4.0",
+    "@angular/common": "^4.0.0",
+    "@angular/compiler": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "@angular/http": "^4.0.0",
+    "@angular/platform-browser": "^4.0.0",
+    "@angular/platform-browser-dynamic": "^4.0.0",
     "core-js": "^2.4.1",
     "rxjs": "^5.0.1",
-    "zone.js": "^0.7.4"
+    "zone.js": "^0.8.5"
   },
   "devDependencies": {
-    "typescript": "^2.1.4"
+    "@angular/compiler-cli": "^4.0.0",
+    "typescript": "^2.1.6"
   },
   "main": "dist/index.js",
   "typings": "dist/index",
